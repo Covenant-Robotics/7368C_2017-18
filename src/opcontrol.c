@@ -31,6 +31,7 @@
  */
 void operatorControl() {
 	while (1) {
+		motorSet(1,127);
 		delay(20);
 	}
 }
