@@ -30,7 +30,7 @@
 #include <config.h>
 #include <drive.h>
 #include <main.h>
-#include "mtrmngr.h"
+#include "mtrmgr.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
