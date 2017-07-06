@@ -26,6 +26,10 @@
 #define MAIN_H_
 
 #include <API.h>
+#include <buttons.h>
+#include <config.h>
+#include <drive.h>
+#include <main.h>
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus

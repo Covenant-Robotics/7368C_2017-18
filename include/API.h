@@ -101,7 +101,9 @@ bool isOnline();
  * @param joystick the joystick slot to check
  * @param axis one of 1, 2, 3, 4, ACCEL_X, or ACCEL_Y
  */
-int joystickGetAnalog(unsigned char joystick, unsigned char axis);
+ int joystickGetAnalog ( unsigned char joystick,   // the joystick slot to check (1 for master, 2 for partner)
+                         unsigned char axis        // One of the joystick channels on a VEX Joystick
+                       );
 /**
  * Gets the value of a button on the VEX joystick. Returns true if that button is pressed, or
  * false otherwise. If no joystick is connected to the requested slot, returns false.
