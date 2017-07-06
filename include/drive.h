@@ -3,9 +3,9 @@
 
 #include "API.h"
 // Sets the speeds of the left and right wheels of the chassis
-void chassisSet(int left, int right);
+void driveSet(int left, int right);
 
-void chassisInit();
+void driveInit();
 
 int chassisGetPos();
 
