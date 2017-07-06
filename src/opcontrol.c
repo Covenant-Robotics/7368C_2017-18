@@ -36,7 +36,10 @@ void operatorControl() {
      while (1) {
          power = joystickGetAnalog(1, 3); // vertical axis on left joystick
          turn  = joystickGetAnalog(1, 4); // horizontal axis on left joystick
-				 driveSet(power+turn, power-turn);
+				 printf("power %d \n", power);
+			   driveSet(power + turn, power - turn);
+						//motorSet(2, 127);
+
   //       motorSet(2, power + turn); // set left wheels
   //       motorSet(3, power - turn); // set right wheels
          delay(20);
