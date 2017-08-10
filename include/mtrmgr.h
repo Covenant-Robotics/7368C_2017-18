@@ -61,7 +61,7 @@ void motorManagerStop();
  * @param recalculate
  *        function pointer to the scaling function for the motor. Supplying NULL will not provide
  */
-void blrsMotorInit(int port, bool inverted, float slew, int (*recalculate)(int));
+void blrsMotorInit(2, false, DEFAULT_SLEW_RATE, NULL);
 
 /**
  * @brief Change the motor speed

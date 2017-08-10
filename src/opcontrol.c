@@ -36,7 +36,19 @@ void operatorControl() {
      while (1) {
          power = joystickGetAnalog(1, 3); // vertical axis on left joystick
          turn  = joystickGetAnalog(1, 4); // horizontal axis on left joystick
+				 if (turn > 80)
+				 	turn = 80;
+				 else if (turn < -80)
+				 	turn = -80;
 			   driveSet(power + turn, power - turn);
+
+				 //Mobile Goal Intake
+				 if (buttonIsNewPress(JOY1_8R))
+				 {
+					 bool current = digitalRead(1);
+					 current = !current;
+					 mobilegoal(current);
+				 }
 						//motorSet(2, 127);
 
   //       motorSet(2, power + turn); // set left wheels
