@@ -36,11 +36,18 @@ void operatorControl() {
      while (1) {
          power = joystickGetAnalog(1, 3); // vertical axis on left joystick
          turn  = joystickGetAnalog(1, 4); // horizontal axis on left joystick
-				 if (turn > 60)
+
+				 if (turn > 60)  //Max turn value is 60
 				 	turn = 60;
 				 else if (turn < -60)
 				 	turn = -60;
 			   driveSet(power + turn, power - turn);
+
+				 if (power < 10) //Stops idle slow motion
+				 	power = 0;
+				 else if (power > -10)
+				 	power = 0;
+
 
 				 //Mobile Goal Intake
 				 if (buttonIsNewPress(JOY1_8R))
