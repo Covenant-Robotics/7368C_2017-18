@@ -34,6 +34,7 @@ void operatorControl() {
 	int power;
    int turn;
      while (1) {
+
          power = joystickGetAnalog(1, 3); // vertical axis on left joystick
          turn  = joystickGetAnalog(1, 4); // horizontal axis on left joystick
 
@@ -48,7 +49,7 @@ void operatorControl() {
 				 else if (power > -10)
 				 	power = 0;
 
-
+				 //Slow Move
 				 //Mobile Goal Intake
 				 if (buttonIsNewPress(JOY1_8R))
 				 {
@@ -56,10 +57,7 @@ void operatorControl() {
 					 current = !current;
 					 mobilegoal(current);
 				 }
-						//motorSet(2, 127);
 
-  //       motorSet(2, power + turn); // set left wheels
-  //       motorSet(3, power - turn); // set right wheels
          delay(20);
      }
 
