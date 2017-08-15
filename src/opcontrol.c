@@ -32,7 +32,9 @@
 void operatorControl() {
 
 	int power;
-   int turn;
+  int turn;
+	bool buttonPress = false;
+
      while (1) {
 
          power = joystickGetAnalog(1, 3); // vertical axis on left joystick
@@ -42,14 +44,23 @@ void operatorControl() {
 				 	turn = 60;
 				 else if (turn < -60)
 				 	turn = -60;
+
+ 				 if (power < 10 && power > 0) //Stops idle slow motion
+ 				 	power = 0;
+ 				 else if (power > -10 && power < 0)
+ 				 	power = 0;
+
+				 if (buttonIsNewPress(JOY1_8U))
+					 buttonPress = !buttonPress;
+
+				 if (buttonPress)
+				 {
+				 	power = power / 2;
+					turn = turn / 2;
+				 }
+
 			   driveSet(power + turn, power - turn);
 
-				 if (power < 10) //Stops idle slow motion
-				 	power = 0;
-				 else if (power > -10)
-				 	power = 0;
-
-				 //Slow Move
 				 //Mobile Goal Intake
 				 if (buttonIsNewPress(JOY1_8R))
 				 {
