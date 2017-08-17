@@ -61,13 +61,16 @@ void operatorControl() {
 
 			   driveSet(power + turn, power - turn);
 
-				 //Mobile Goal Intake
+				 //Mobile Goal Intake Pneumatic Controls
 				 if (buttonIsNewPress(JOY1_8R))
 				 {
 					 bool current = digitalRead(1);
 					 current = !current;
 					 mobilegoal(current);
 				 }
+
+				 // Rack and Pinion Controls
+
 
          delay(20);
      }
