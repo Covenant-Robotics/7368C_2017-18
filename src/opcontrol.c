@@ -29,45 +29,51 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
+ static int clamp(int in) {return (abs(in) > 15) ? in : 0; }
 void operatorControl() {
 
 	int power;
   int turn;
-	bool buttonPress = false;
+	bool halfButtonPress = false;
+	bool quarterButtonPress = false;
 
      while (1) {
 
-         power = joystickGetAnalog(1, 3); // vertical axis on left joystick
-         turn  = joystickGetAnalog(1, 4); // horizontal axis on left joystick
+         power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
+         turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
 
 				 if (turn > 60)  //Max turn value is 60
 				 	turn = 60;
 				 else if (turn < -60)
 				 	turn = -60;
 
- 				 if (power < 10 && power > 0) //Stops idle slow motion
- 				 	power = 0;
- 				 else if (power > -10 && power < 0)
- 				 	power = 0;
+				 if (buttonIsNewPress(JOY1_8R))
+					 halfButtonPress = !halfButtonPress;
 
-				 if (buttonIsNewPress(JOY1_8U))
-					 buttonPress = !buttonPress;
-
-				 if (buttonPress)
+				 if (halfButtonPress)
 				 {
 				 	power = power / 2;
 					turn = turn / 2;
 				 }
 
+				 if (buttonIsNewPress (JOY1_8L))
+				 	 quarterButtonPress = !quarterButtonPress;
+
+				 if (quarterButtonPress)
+				 {
+					 power = power / 4;
+					 turn = turn / 4;
+				 }
 			   driveSet(power + turn, power - turn);
 
 				 //Mobile Goal Intake Pneumatic Controls
-				 if (buttonIsNewPress(JOY1_8R))
+				 if (buttonIsNewPress(JOY1_8D))
 				 {
 					 bool current = digitalRead(1);
 					 current = !current;
 					 mobilegoal(current);
 				 }
+
 
 				 // Rack and Pinion Controls
 
