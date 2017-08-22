@@ -61,8 +61,8 @@ void operatorControl() {
 
 				 if (quarterButtonPress)
 				 {
-					 power = power / 4;
-					 turn = turn / 4;
+					 power = power / 3.3;
+					 turn = turn / 3.3;
 				 }
 			   driveSet(power + turn, power - turn);
 
