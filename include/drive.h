@@ -9,7 +9,4 @@ void driveInit();
 
 int chassisGetPos();
 
-// Makes the thing for the slow drive into ten point zone
-void tenPtZone(bool down);
-
 #endif
