@@ -11,3 +11,7 @@ void mobilegoal(bool down)
 }
 
 //Motor Controls for Rack and Pinion intake
+void liftSet (int lift) {
+  blrsMotorSet(MOTOR_RACK_LEFT, lift, false); //slot 8
+  blrsMotorSet(MOTOR_RACK_RIGHT, lift, false); //slot 9
+}

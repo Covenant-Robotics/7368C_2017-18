@@ -7,7 +7,7 @@ void mobilegoal(bool down);
 
 // Creates stuff for Lift
 // Motors
-void liftSet(int left, int right);
+void liftSet(int lift);
 
 // Creates stuff for rack and pinion
 // Motors
