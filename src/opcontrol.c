@@ -32,6 +32,7 @@
  static int clamp(int in) {return (abs(in) > 15) ? in : 0; }
 void operatorControl() {
 
+  int lift;
 	int power;
   int turn;
 	bool halfButtonPress = false;
@@ -41,6 +42,7 @@ void operatorControl() {
 
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
+         lift  = clamp(joystickGetAnalog(1, 2)); // vertical axis on right joystick
 
 				 if (turn > 60)  //Max turn value is 60
 				 	turn = 60;
@@ -73,6 +75,8 @@ void operatorControl() {
 					 current = !current;
 					 mobilegoal(current);
 				 }
+
+         // Lift Stuff
 
 
 				 // Rack and Pinion Controls
