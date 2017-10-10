@@ -11,10 +11,10 @@ void liftSet(int lift);
 
 // Creates stuff for rack and pinion
 // Motors
-void rackSet(int left int right);
+void rackSet(int rack);
 
 //Creates stuff for claw
 //Motors
-void clawSet();
+void clawSet(int claw);
 
 #endif

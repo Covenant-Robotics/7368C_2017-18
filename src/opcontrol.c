@@ -77,7 +77,7 @@ void operatorControl() {
 				 }
 
          // Lift Stuff
-
+         liftSet(lift);
 
 				 // Rack and Pinion Controls
 
