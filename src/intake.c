@@ -8,6 +8,7 @@ Mobile Goal intake and Cone intake
 void mobilegoal(bool down)
 {
   digitalWrite(1, down);
+  digitalWrite(2, down);
 }
 
 // Motor Controls for Lift

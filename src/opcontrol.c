@@ -32,13 +32,14 @@
  static int clamp(int in) {return (abs(in) > 15) ? in : 0; }
 void operatorControl() {
 
-  int rack;
+  //int rack;
   int lift;
 	int power;
   int turn;
-	bool halfButtonPress = false;
+  /*
+  bool halfButtonPress = false;
 	bool quarterButtonPress = false;
-
+  */
      while (1) {
 
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
@@ -50,7 +51,8 @@ void operatorControl() {
 				 else if (turn < -60)
 				 	turn = -60;
 
-				 if (buttonIsNewPress(JOY1_8R))
+          /*
+				   if (buttonIsNewPress(JOY1_8R))
 					 halfButtonPress = !halfButtonPress;
 
 				 if (halfButtonPress)
@@ -67,6 +69,7 @@ void operatorControl() {
 					 power = power / 3.3;
 					 turn = turn / 3.3;
 				 }
+         */
 			   driveSet(power + turn, power - turn);
 
 				 //Mobile Goal Intake Pneumatic Controls
@@ -81,15 +84,27 @@ void operatorControl() {
          liftSet(lift);
 
 				 // Rack and Pinion Controls
+         if (buttonGetState(JOY1_6D)) {        //Button 8U for In Rack
+           rackSet(127);
+         }
+         else if(buttonGetState(JOY1_6U)) {   //Button 8D for Out Rack
+           rackSet(-127);
+         }
+         else {
+           rackSet(0);
+         }
 
-         if (buttonIsNewPress(JOY1_7L))
-          {
-            rack = !rack;
-            rack = 127;
-            rackSet(rack);
-            delay(200); //placeholder guess number
-                        
+         // Claw Controls
+          if (buttonGetState(JOY1_8U)) {        //Button 8U for Open Claw
+            blrsMotorSet(MOTOR_CLAW, 127, true);
           }
+          else if(buttonGetState(JOY1_8D)) {   //Button 8D for Close claw
+            blrsMotorSet(MOTOR_CLAW, -100, true);
+          }
+          else {
+            blrsMotorSet(MOTOR_CLAW, 0, true);     //Claw =0
+          }
+
 
 
          delay(20);
