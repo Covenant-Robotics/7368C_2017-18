@@ -84,11 +84,13 @@ void operatorControl() {
 
          if (buttonIsNewPress(JOY1_7L))
           {
+            rack = !rack;
             rack = 127;
             rackSet(rack);
-            delay(200);
-            rack = !rack;
+            delay(200); //placeholder guess number
+                        
           }
+
 
          delay(20);
      }
