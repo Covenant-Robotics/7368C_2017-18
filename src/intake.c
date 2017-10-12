@@ -18,7 +18,7 @@ void liftSet (int lift) {
 }
 
 // Motor Controls for Claw
-void clawGo(int claw) {
+void clawSet(int claw) {
   blrsMotorSet(MOTOR_CLAW, claw, false); // slot 10
 
 }

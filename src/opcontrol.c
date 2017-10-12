@@ -73,7 +73,7 @@ void operatorControl() {
 			   driveSet(power + turn, power - turn);
 
 				 //Mobile Goal Intake Pneumatic Controls
-				 if (buttonIsNewPress(JOY1_8D))
+				 if (buttonIsNewPress(JOY1_7D))
 				 {
 					 bool current = digitalRead(1);
 					 current = !current;
@@ -96,13 +96,13 @@ void operatorControl() {
 
          // Claw Controls
           if (buttonGetState(JOY1_8U)) {        //Button 8U for Open Claw
-            blrsMotorSet(MOTOR_CLAW, 127, true);
+            clawSet(127);
           }
           else if(buttonGetState(JOY1_8D)) {   //Button 8D for Close claw
-            blrsMotorSet(MOTOR_CLAW, -100, true);
+            clawSet(-100);
           }
           else {
-            blrsMotorSet(MOTOR_CLAW, 0, true);     //Claw =0
+            clawSet(0);     //Claw =0
           }
 
 

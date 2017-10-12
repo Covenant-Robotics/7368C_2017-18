@@ -12,8 +12,8 @@ void driveSet (int left, int right) {
 }
 
 void driveInit(){
-  blrsMotorInit(MOTOR_LEFT_FRONT, false , 0.5f, NULL);
+  blrsMotorInit(MOTOR_LEFT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(MOTOR_LEFT_BACK, true , 0.5f, NULL);
-  blrsMotorInit(MOTOR_RIGHT_FRONT, true , 0.5f, NULL);
+  blrsMotorInit(MOTOR_RIGHT_FRONT, false , 0.5f, NULL);
   blrsMotorInit(MOTOR_RIGHT_BACK, false , 0.5f, NULL);
 }
