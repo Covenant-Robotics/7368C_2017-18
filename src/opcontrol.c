@@ -32,6 +32,7 @@
  static int clamp(int in) {return (abs(in) > 15) ? in : 0; }
 void operatorControl() {
 
+  int rack;
   int lift;
 	int power;
   int turn;
@@ -81,6 +82,13 @@ void operatorControl() {
 
 				 // Rack and Pinion Controls
 
+         if (buttonIsNewPress(JOY1_7L))
+          {
+            rack = 127;
+            rackSet(rack);
+            delay(200);
+            rack = !rack;
+          }
 
          delay(20);
      }

@@ -17,4 +17,6 @@ void rackSet(int rack);
 //Motors
 void clawSet(int claw);
 
+// Lets us initialize all the intake motors
+void intakeInit();
 #endif
