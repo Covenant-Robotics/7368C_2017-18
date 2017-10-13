@@ -1,6 +1,7 @@
 #ifndef INTAKE_H_
 #define INTAKE_H_
 
+#include "API.h"
 // Creates stuff for Mobile Goal Intake
 // Pneumatics
 void mobilegoal(bool down);

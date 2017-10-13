@@ -41,4 +41,5 @@
 void initialize() {
   motorManagerInit();
   driveInit();
+  intakeInit();
 }

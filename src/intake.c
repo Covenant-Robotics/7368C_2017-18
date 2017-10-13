@@ -33,9 +33,9 @@ void rackSet(int rack) {
 //Initialize Stuff
 
 void intakeInit(){
-  blrsMotorInit(MOTOR_RACK_LEFT, false , 0.5f, NULL);
-  blrsMotorInit(MOTOR_RACK_RIGHT, false , 0.5f, NULL);
-  blrsMotorInit(MOTOR_LIFT_LEFT, false , 0.5f, NULL);
-  blrsMotorInit(MOTOR_LIFT_RIGHT, false , 0.5f, NULL);
-  blrsMotorInit(MOTOR_CLAW, false , 0.5f, NULL);
+  blrsMotorInit(MOTOR_RACK_LEFT, false , NULL, NULL);
+  blrsMotorInit(MOTOR_RACK_RIGHT, false , NULL, NULL);
+  blrsMotorInit(MOTOR_LIFT_LEFT, false , NULL, NULL);
+  blrsMotorInit(MOTOR_LIFT_RIGHT, false , NULL, NULL);
+  blrsMotorInit(MOTOR_CLAW, false , NULL, NULL);
 }
