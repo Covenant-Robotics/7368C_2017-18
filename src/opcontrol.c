@@ -32,8 +32,8 @@
  static int clamp(int in) {return (abs(in) > 15) ? in : 0; }
 void operatorControl() {
 
-  //int rack;
-  int lift;
+  // int rack;
+  // int lift;
 	int power;
   int turn;
   /*
@@ -44,7 +44,6 @@ void operatorControl() {
 
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
-         lift  = clamp(joystickGetAnalog(1, 2)); // vertical axis on right joystick
 
 				 if (turn > 60)  //Max turn value is 60
 				 	turn = 60;
@@ -81,7 +80,15 @@ void operatorControl() {
 				 }
 
          // Lift Stuff
-         liftSet(lift);
+         if (buttonGetState(JOY1_7U)) {        //Button 8U for In Rack
+           liftSet(127);
+         }
+         else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
+           liftSet(-127);
+         }
+         else {
+           liftSet(0);
+         }
 
 				 // Rack and Pinion Controls
          if (buttonGetState(JOY1_6D)) {        //Button 8U for In Rack
