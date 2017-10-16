@@ -1,18 +1,5 @@
-/**
- * @file buttons.c
- * @author Elliot Berman
- *
- * @details The Buttons API enables press-once to trigger control, allowing button pressed to be made which act like taps.
- * The API works by holding a boolean "wasPressed" for each button and when buttonIsNewPress() is called,
- * the method compares whether the press is a new press that has not previously been detected. <br>
- * <br>
- * This is useful in applications where the operator needs to press a button to change a state, but does not want
- * the state to to change the state every time the button is checked. For example, toggling a solenoid on/off with
- * a single button. <br>
- *
- ********************************************************************************/
 
-#include "buttons.h"
+#include "main.h"
 
 /**
  * Represents the array of "wasPressed" for all 27 available buttons.
