@@ -12,7 +12,7 @@ void mobilegoal(bool down)
 }
 
 // Motor Controls for Lift
-void liftSet (lift)
+void liftSet(int lift)
 {
   blrsMotorSet(LIFT_LEFT, lift, false); // slot 6
   blrsMotorSet(LIFT_RIGHT, lift, false); // slot 7
@@ -36,9 +36,9 @@ void rackSet(int rack)
 
 void intakeInit()
 {
-  blrsMotorInit(RACK_LEFT, false , 0, NULL);
-  blrsMotorInit(RACK_RIGHT, false , 0, NULL);
-  blrsMotorInit(LIFT_LEFT, false , 0, NULL);
-  blrsMotorInit(LIFT_RIGHT, false , 0, NULL);
-  blrsMotorInit(CLAW, false , 0, NULL);
+  blrsMotorInit(RACK_LEFT, false , 0.5f, NULL);
+  blrsMotorInit(RACK_RIGHT, true , 0.5f, NULL);
+  blrsMotorInit(LIFT_LEFT, false , 0.5f, NULL);
+  blrsMotorInit(LIFT_RIGHT, true , 0.5f, NULL);
+  blrsMotorInit(CLAW, false , 0.5f, NULL);
 }
