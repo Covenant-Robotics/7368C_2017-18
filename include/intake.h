@@ -1,7 +1,7 @@
 #ifndef INTAKE_H_
 #define INTAKE_H_
 
-#include "API.h"
+#include "main.h"
 // Creates stuff for Mobile Goal Intake
 // Pneumatics
 void mobilegoal(bool down);
@@ -20,4 +20,5 @@ void clawSet(int claw);
 
 // Lets us initialize all the intake motors
 void intakeInit();
+
 #endif

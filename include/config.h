@@ -1,14 +1,14 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
-#define MOTOR_LEFT_FRONT 2
-#define MOTOR_LEFT_BACK 3
-#define MOTOR_RIGHT_FRONT 4
-#define MOTOR_RIGHT_BACK 5
-#define MOTOR_LIFT_LEFT 6
-#define MOTOR_LIFT_RIGHT 7
-#define MOTOR_RACK_LEFT 8
-#define MOTOR_RACK_RIGHT 9
-#define MOTOR_CLAW 10
+#define LEFT_FRONT 2
+#define LEFT_BACK 3
+#define RIGHT_FRONT 4
+#define RIGHT_BACK 5
+#define LIFT_LEFT 6
+#define LIFT_RIGHT 7
+#define RACK_LEFT 8
+#define RACK_RIGHT 9
+#define CLAW 10
 
 #endif

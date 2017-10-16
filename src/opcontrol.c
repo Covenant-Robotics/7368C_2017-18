@@ -36,6 +36,7 @@ void operatorControl() {
   // int lift;
 	int power;
   int turn;
+  int lift;
   /*
   bool halfButtonPress = false;
 	bool quarterButtonPress = false;
@@ -80,25 +81,25 @@ void operatorControl() {
 				 }
 
          // Lift Stuff
-         if (buttonGetState(JOY1_7U)) {        //Button 8U for In Rack
+         if (buttonGetState(JOY1_6U)) {        //Button 8U for In Rack
            liftSet(127);
          }
-         else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
+         else if(buttonGetState(JOY1_6D)) {   //Button 8D for Out Rack
            liftSet(-127);
          }
          else {
            liftSet(0);
          }
-
+         liftSet(lift);
 				 // Rack and Pinion Controls
-         if (buttonGetState(JOY1_6D)) {        //Button 8U for In Rack
-           rackSet(127);
+         if (buttonGetState(JOY1_7U)) {        //Button 8U for In Rack
+           lift = 127;
          }
-         else if(buttonGetState(JOY1_6U)) {   //Button 8D for Out Rack
-           rackSet(-127);
+         else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
+           lift = -127;
          }
          else {
-           rackSet(0);
+           lift = 0;
          }
 
          // Claw Controls
@@ -111,8 +112,6 @@ void operatorControl() {
           else {
             clawSet(0);     //Claw =0
           }
-
-
 
          delay(20);
      }

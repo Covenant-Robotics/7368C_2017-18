@@ -12,30 +12,33 @@ void mobilegoal(bool down)
 }
 
 // Motor Controls for Lift
-void liftSet (int lift) {
-  blrsMotorSet(MOTOR_LIFT_LEFT, lift, false); // slot 6
-  blrsMotorSet(MOTOR_LIFT_RIGHT, lift, false); // slot 7
+void liftSet (lift)
+{
+  blrsMotorSet(LIFT_LEFT, lift, false); // slot 6
+  blrsMotorSet(LIFT_RIGHT, lift, false); // slot 7
 }
 
 // Motor Controls for Claw
-void clawSet(int claw) {
-  blrsMotorSet(MOTOR_CLAW, claw, false); // slot 10
-
+void clawSet(int claw)
+{
+  blrsMotorSet(CLAW, claw, false); // slot 10
 }
 
 // Motor Controls for Rack and Pinion intake
-void rackSet(int rack) {
-  blrsMotorSet(MOTOR_RACK_LEFT, rack, false); //slot 8
-  blrsMotorSet(MOTOR_RACK_RIGHT, rack, false); //slot 9
+void rackSet(int rack)
+{
+  blrsMotorSet(RACK_LEFT, rack, false); //slot 8
+  blrsMotorSet(RACK_RIGHT, rack, false); //slot 9
 
 }
 
 //Initialize Stuff
 
-void intakeInit(){
-  blrsMotorInit(MOTOR_RACK_LEFT, false , NULL, NULL);
-  blrsMotorInit(MOTOR_RACK_RIGHT, false , NULL, NULL);
-  blrsMotorInit(MOTOR_LIFT_LEFT, false , NULL, NULL);
-  blrsMotorInit(MOTOR_LIFT_RIGHT, false , NULL, NULL);
-  blrsMotorInit(MOTOR_CLAW, false , NULL, NULL);
+void intakeInit()
+{
+  blrsMotorInit(RACK_LEFT, false , 0, NULL);
+  blrsMotorInit(RACK_RIGHT, false , 0, NULL);
+  blrsMotorInit(LIFT_LEFT, false , 0, NULL);
+  blrsMotorInit(LIFT_RIGHT, false , 0, NULL);
+  blrsMotorInit(CLAW, false , 0, NULL);
 }
