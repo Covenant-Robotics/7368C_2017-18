@@ -11,6 +11,7 @@
   int lift;
   int rack;
   int claw;
+  //int mbl;
   /*
   bool halfButtonPress = false;
 	bool quarterButtonPress = false;
@@ -49,9 +50,12 @@
 				 //Mobile Goal Intake Pneumatic Controls
 				 if (buttonIsNewPress(JOY1_7D))
 				 {
-					 bool current = digitalRead(1);
-					 current = !current;
-					 mobilegoal(current);
+					// bool down = digitalRead(1);
+					// down = !down;
+					// mobilegoal(down);
+          bool mbl = digitalRead(1);
+          mbl = !mbl;
+          mobilegoal(mbl);
 				 }
 
          // Lift Stuff
@@ -67,10 +71,10 @@
          liftSet(lift);
 
 				 // Rack and Pinion Controls
-         if (buttonGetState(JOY1_7U)) {        //Button 8U for In Rack
+         if (buttonGetState(JOY1_5U)) {        //Button 8U for In Rack
            rack = 127;
          }
-         else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
+         else if(buttonGetState(JOY1_5D)) {   //Button 8D for Out Rack
            rack = -127;
          }
          else {
@@ -80,7 +84,7 @@
 
          // Claw Controls
           if (buttonGetState(JOY1_8U)) {        //Button 8U for Open Claw
-            claw = 127;
+            claw = 100;
           }
           else if(buttonGetState(JOY1_8D)) {   //Button 8D for Close claw
             claw = -127;

@@ -9,6 +9,6 @@
 #define LIFT_RIGHT 7
 #define RACK_LEFT 8
 #define RACK_RIGHT 9
-#define CLAW 10
+#define CLAW 1
 
 #endif
