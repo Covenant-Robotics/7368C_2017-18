@@ -23,8 +23,8 @@
  void initializeIO() {
    pinMode(1, OUTPUT); // configure digital port 1 as an output
    digitalWrite(1, LOW); // write LOW to port 1 (solenoid may be extended or not, depending on wiring)
-   pinMode(2, OUTPUT); // configure digital port 2 as an output
-   digitalWrite(2, LOW); // write LOW to port 2 (solenoid may be extended or not, depending on wiring)
+   // pinMode(2, OUTPUT); // configure digital port 2 as an output
+   // digitalWrite(2, LOW); // write LOW to port 2 (solenoid may be extended or not, depending on wiring)
  }
 
 /*

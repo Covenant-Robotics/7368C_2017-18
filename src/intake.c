@@ -8,7 +8,7 @@ Mobile Goal intake and Cone intake
 void mobilegoal(bool down)
 {
   digitalWrite(1, down);
-  digitalWrite(2, down);
+  //digitalWrite(2, down);
 }
 
 // Motor Controls for Lift
@@ -29,15 +29,14 @@ void rackSet(int rack)
 {
   blrsMotorSet(RACK_LEFT, rack, false); //slot 8
   blrsMotorSet(RACK_RIGHT, rack, false); //slot 9
-
 }
 
 //Initialize Stuff
 
 void intakeInit()
 {
-  blrsMotorInit(RACK_LEFT, false , 0.5f, NULL);
-  blrsMotorInit(RACK_RIGHT, true , 0.5f, NULL);
+  blrsMotorInit(RACK_LEFT, true, 0.5f, NULL);
+  blrsMotorInit(RACK_RIGHT, false , 0.5f, NULL);
   blrsMotorInit(LIFT_LEFT, false , 0.5f, NULL);
   blrsMotorInit(LIFT_RIGHT, true , 0.5f, NULL);
   blrsMotorInit(CLAW, false , 0.5f, NULL);

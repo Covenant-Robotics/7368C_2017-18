@@ -50,12 +50,9 @@
 				 //Mobile Goal Intake Pneumatic Controls
 				 if (buttonIsNewPress(JOY1_7D))
 				 {
-					// bool down = digitalRead(1);
-					// down = !down;
-					// mobilegoal(down);
-          bool mbl = digitalRead(1);
-          mbl = !mbl;
-          mobilegoal(mbl);
+					bool down = digitalRead(1);
+					down = !down;
+					mobilegoal(down);
 				 }
 
          // Lift Stuff
