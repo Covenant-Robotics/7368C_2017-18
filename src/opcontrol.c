@@ -11,7 +11,7 @@
   int lift;
   int rack;
   int claw;
-  //int mbl;
+  int mogo;
   /*
   bool halfButtonPress = false;
 	bool quarterButtonPress = false;
@@ -47,6 +47,7 @@
          */
 			   driveSet(power + turn, power - turn);
 
+/*
 				 //Mobile Goal Intake Pneumatic Controls
 				 if (buttonIsNewPress(JOY1_7D))
 				 {
@@ -54,6 +55,19 @@
 					down = !down;
 					mobilegoal(down);
 				 }
+*/
+
+         // Mobile Goal Controls
+         if (buttonGetState(JOY1_7U)) {
+           mogo = 127;
+         }
+         else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
+           mogo = -127;
+         }
+         else {
+           mogo = 0;
+         }
+         goalSet(mogo);
 
          // Lift Stuff
          if (buttonGetState(JOY1_6U)) {        //Button 8U for In Rack

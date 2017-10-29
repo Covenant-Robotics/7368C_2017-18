@@ -2,9 +2,14 @@
 #define INTAKE_H_
 
 #include "main.h"
+/*
 // Creates stuff for Mobile Goal Intake
 // Pneumatics
 void mobilegoal(bool down);
+*/
+//Creates stuff for Mobile Goal Intake
+// Motors
+void goalSet(int goal);
 
 // Creates stuff for Lift
 // Motors
