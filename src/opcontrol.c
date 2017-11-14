@@ -44,7 +44,7 @@
 					 turn = turn / 3.3;
 				 }
          */
-			   driveSet(power + turn, power - turn);
+			   driveSet(power + turn * .9, power - turn);
 
 /*
 				 //Mobile Goal Intake Pneumatic Controls
