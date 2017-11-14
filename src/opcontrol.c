@@ -12,10 +12,9 @@
   int rack;
   int claw;
   int mogo;
-  /*
   bool halfButtonPress = false;
-	bool quarterButtonPress = false;
-  */
+	//bool quarterButtonPress = false;
+
      while (1) {
 
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
@@ -26,16 +25,16 @@
 				 else if (turn < -60)
 				 	turn = -60;
 
-          /*
-				   if (buttonIsNewPress(JOY1_8R))
-					 halfButtonPress = !halfButtonPress;
+
+				 if (buttonIsNewPress(JOY1_8R))
+					halfButtonPress = !halfButtonPress;
 
 				 if (halfButtonPress)
 				 {
 				 	power = power / 2;
 					turn = turn / 2;
 				 }
-
+         /*
 				 if (buttonIsNewPress (JOY1_8L))
 				 	 quarterButtonPress = !quarterButtonPress;
 
@@ -62,7 +61,10 @@
            mogo = 127;
          }
          else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
-           mogo = -127;
+           mogo = -90;
+         }
+         else if(buttonGetState(JOY1_7L)) {
+           mogo = 90;
          }
          else {
            mogo = 0;
@@ -71,10 +73,10 @@
 
          // Lift Stuff
          if (buttonGetState(JOY1_6U)) {        //Button 8U for In Rack
-           lift = 127;
+           lift = 80;
          }
          else if(buttonGetState(JOY1_6D)) {   //Button 8D for Out Rack
-           lift = -127;
+           lift = -80;
          }
          else {
            lift = 0;
@@ -98,7 +100,7 @@
             claw = 100;
           }
           else if(buttonGetState(JOY1_8D)) {   //Button 8D for Close claw
-            claw = -127;
+            claw = -80;
           }
           else {
             claw = 0;     //Claw =0

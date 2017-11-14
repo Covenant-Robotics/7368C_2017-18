@@ -41,6 +41,6 @@ void intakeInit()
 {
   blrsMotorInit(RACK, true, 0.5f, NULL);
   blrsMotorInit(LIFT, false , 0.5f, NULL);
-  blrsMotorInit(CLAW, false , 0.5f, NULL);
+  blrsMotorInit(CLAW, true , 0.5f, NULL);
   blrsMotorInit(MOGO, false , 0.5f, NULL);
 }
