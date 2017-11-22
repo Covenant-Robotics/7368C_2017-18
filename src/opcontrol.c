@@ -44,7 +44,7 @@
 					 turn = turn / 3.3;
 				 }
          */
-			   driveSet(power + turn * .9, power - turn);
+			   driveSet(power + turn, power - turn);
 
 /*
 				 //Mobile Goal Intake Pneumatic Controls
@@ -97,7 +97,7 @@
 
          // Claw Controls
           if (buttonGetState(JOY1_8U)) {        //Button 8U for Open Claw
-            claw = 100;
+            claw = 127;
           }
           else if(buttonGetState(JOY1_8D)) {   //Button 8D for Close claw
             claw = -80;

@@ -27,12 +27,13 @@
  * so, the robot will await a switch to another mode or disable/enable cycle.
  */
 void autonomous() {
-      clawSet(100);
-      delay(100);
-      rackSet(127);
-      delay(1000);
       clawSet(-80);
+      rackSet(127);
+      delay(50);
+      clawSet(0);
+      delay(950);
       rackSet(0);
-      delay(100);
-      driveSet(127, 127);
+      clawSet(-80);
+
+      // driveSet(127, 127);
 }

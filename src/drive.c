@@ -15,6 +15,6 @@ void driveInit()
 {
   blrsMotorInit(LEFT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(LEFT_BACK, true , 0.5f, NULL);
-  blrsMotorInit(RIGHT_FRONT, false , 0.5f, NULL);
+  blrsMotorInit(RIGHT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(RIGHT_BACK, false , 0.5f, NULL);
 }
