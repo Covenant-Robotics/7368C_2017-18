@@ -69,7 +69,7 @@
          else {
            mogo = 0;
          }
-         goalSet(mogo);
+         mogoSet(mogo);
 
          // Lift Stuff
          if (buttonGetState(JOY1_6U)) {        //Button 8U for In Rack

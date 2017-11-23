@@ -13,7 +13,7 @@ void mobilegoal(bool down)
 */
 
 // Motor Controls for Lift
-void goalSet(int goal)
+void mogoSet(int goal)
 {
   blrsMotorSet(MOGO, goal, false);
 }
@@ -39,8 +39,8 @@ void rackSet(int rack)
 
 void intakeInit()
 {
-  blrsMotorInit(RACK, true, 0.5f, NULL);
-  blrsMotorInit(LIFT, false , 0.5f, NULL);
-  blrsMotorInit(CLAW, true , 0.5f, NULL);
+  blrsMotorInit(RACK, true, 0, NULL);
+  blrsMotorInit(LIFT, false , 0, NULL);
+  blrsMotorInit(CLAW, true , 0, NULL);
   blrsMotorInit(MOGO, false , 0.5f, NULL);
 }

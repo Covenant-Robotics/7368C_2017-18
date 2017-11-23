@@ -10,4 +10,11 @@
 #define RACK 7
 #define MOGO 8
 
+#define ENCODER_LEFT_TOP 2
+#define ENCODER_LEFT_BOTTOM 3
+
+#define LIFT_POT 1
+#define AUTON_POT 4
+#define MOGO_POT 5
+
 #endif

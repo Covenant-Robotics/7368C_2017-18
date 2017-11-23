@@ -3,6 +3,8 @@ Drive Code
 */
 #include "main.h"
 
+Encoder leftEncoder;
+
 void driveSet (int left, int right)
 {
   blrsMotorSet(LEFT_FRONT, left, false); //slot 2
@@ -17,4 +19,15 @@ void driveInit()
   blrsMotorInit(LEFT_BACK, true , 0.5f, NULL);
   blrsMotorInit(RIGHT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(RIGHT_BACK, false , 0.5f, NULL);
+  leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOTTOM, false);
+}
+
+void driveReset (){
+  encoderReset(leftEncoder);
+}
+
+int driveGetPos(){
+  int leftPos;
+  leftPos = encoderGet(leftEncoder);
+  return (leftPos);
 }

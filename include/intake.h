@@ -9,7 +9,7 @@ void mobilegoal(bool down);
 */
 //Creates stuff for Mobile Goal Intake
 // Motors
-void goalSet(int goal);
+void mogoSet(int goal);
 
 // Creates stuff for Lift
 // Motors
