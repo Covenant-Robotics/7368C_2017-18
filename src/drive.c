@@ -4,6 +4,9 @@ Drive Code
 #include "main.h"
 
 Encoder leftEncoder;
+int driveGetPos(){
+  return encoderGet(leftEncoder);
+}
 
 void driveSet (int left, int right)
 {
@@ -15,19 +18,13 @@ void driveSet (int left, int right)
 
 void driveInit()
 {
+  leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOTTOM, false);
   blrsMotorInit(LEFT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(LEFT_BACK, true , 0.5f, NULL);
   blrsMotorInit(RIGHT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(RIGHT_BACK, false , 0.5f, NULL);
-  leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOTTOM, false);
 }
 
 void driveReset (){
   encoderReset(leftEncoder);
-}
-
-int driveGetPos(){
-  int leftPos;
-  leftPos = encoderGet(leftEncoder);
-  return (leftPos);
 }

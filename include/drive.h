@@ -6,7 +6,8 @@ void driveSet(int left, int right);
 
 void driveInit();
 
+void driveReset();
+
 int driveGetPos();
 
-void driveReset();
 #endif
