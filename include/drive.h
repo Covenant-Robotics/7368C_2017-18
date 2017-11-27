@@ -10,4 +10,8 @@ void driveReset();
 
 int driveGetPos();
 
+int driveRightPos();
+
+int driveLeftPos();
+
 #endif

@@ -10,11 +10,13 @@
 #define RACK 7
 #define MOGO 8
 
-#define ENCODER_LEFT_TOP 2     // Encoders
-#define ENCODER_LEFT_BOTTOM 3
+#define ENCODER_LEFT_TOP 3     // Encoders
+#define ENCODER_LEFT_BOTTOM 4
+#define ENCODER_RIGHT_TOP 5
+#define ENCODER_RIGHT_BOTTOM 6
 
 #define LIFT_POT 1     // Potentiometers
-#define MOGO_POT 4
+#define MOGO_POT 2
 
 #define JUMPER_1 10
 #define JUMPER_2 11

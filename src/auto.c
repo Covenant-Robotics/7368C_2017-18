@@ -71,8 +71,8 @@ void autonomous() {
     driveSet(0, 0);
     delay(750);
     driveReset();
-    ////////////////////////////////////////////
-    while(driveGetPos() > -325){                //turn even more?
+    //////////////////////////////////////////////turn even more?
+    while (driveLeftPos() > -325 || driveRightPos() < 325) {
       driveSet(-40, 40);
       delay(20);
     }
@@ -217,7 +217,7 @@ else if(digitalRead(JUMPER_3) == 1){
   delay(750);
   driveReset();
   ////////////////////////////////////////////
-  while(driveGetPos() < 275){                 //turn even more?
+  while(driveLeftPos() < 275 || driveRightPos() > -275) {                 //turn even more?
     driveSet(40, -40);
     delay(20);
   }
