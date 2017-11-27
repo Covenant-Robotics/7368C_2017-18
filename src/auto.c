@@ -28,7 +28,7 @@ void autonomous() {
     }
     liftSet(0);
     ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) > 800){          // Mogo intake out
+    while(analogRead(MOGO_POT) < 1510){          // Mogo intake out
       mogoSet(127);
       delay(20);
     }
@@ -43,7 +43,7 @@ void autonomous() {
     driveReset();
     delay(200);
     ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) < 2500){         //intake mogo
+    while(analogRead(MOGO_POT) > 100){         //intake mogo
       mogoSet(-127);
       delay(20);
     }
@@ -85,7 +85,7 @@ void autonomous() {
     }
     liftSet(0);
     ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) > 800){          // out of mogo intake
+    while(analogRead(MOGO_POT) < 1510){          // out of mogo intake
       mogoSet(127);
       delay(20);
     }
@@ -94,7 +94,7 @@ void autonomous() {
     driveSet(-80,-80);                          //drive out of scoring zone
     delay(500);
     ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) < 2500){         //return mogo intake
+    while(analogRead(MOGO_POT) > 100){         //return mogo intake
       mogoSet(-80);
       delay(20);
     }
@@ -152,6 +152,7 @@ else if(digitalRead(JUMPER_2) == 1){
       driveSet(-25, -25);
       delay(20);
     }
+    driveSet(0, 0);
     driveReset();
 }
 // end middle auton
@@ -172,7 +173,7 @@ else if(digitalRead(JUMPER_3) == 1){
   }
   liftSet(0);
   ////////////////////////////////////////////
-  while(analogRead(MOGO_POT) > 800){          //mogo intake out
+  while(analogRead(MOGO_POT) < 1510){          //mogo intake out
     mogoSet(127);
     delay(20);
   }
@@ -187,7 +188,7 @@ else if(digitalRead(JUMPER_3) == 1){
   driveReset();
   delay(200);
   ////////////////////////////////////////////
-  while(analogRead(MOGO_POT) < 2500){         //intake mogo
+  while(analogRead(MOGO_POT) > 100){         //intake mogo
     mogoSet(-127);
     delay(20);
   }
@@ -236,7 +237,7 @@ else if(digitalRead(JUMPER_3) == 1){
   }
   liftSet(0);
   ////////////////////////////////////////////
-  while(analogRead(MOGO_POT) > 800){          //mogo down
+  while(analogRead(MOGO_POT) < 1510){         //mogo down
     mogoSet(127);
     delay(20);
   }
@@ -244,7 +245,7 @@ else if(digitalRead(JUMPER_3) == 1){
   driveSet(-80,-80);
   delay(500);
   ////////////////////////////////////////////
-  while(analogRead(MOGO_POT) < 2500){         //mogo intake up
+  while(analogRead(MOGO_POT) > 100){         //mogo intake up
     mogoSet(-80);
     delay(20);
   }

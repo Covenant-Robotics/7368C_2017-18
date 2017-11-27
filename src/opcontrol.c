@@ -17,7 +17,7 @@
 
      while (1) {
 
-        printf("encoder %d", encoderGet(leftEncoder));
+        printf("%d mogo", analogRead(MOGO_POT));
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
 
@@ -107,10 +107,6 @@
             claw = 0;     //Claw =0
           }
           clawSet(claw);
-
-          if (buttonGetState(JOY1_8R)) {
-            driveReset();
-          }
 
          delay(20);
      }
