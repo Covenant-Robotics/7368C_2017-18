@@ -13,6 +13,7 @@
 extern "C" {
 #endif
 
+Encoder leftEncoder;
 
 
 

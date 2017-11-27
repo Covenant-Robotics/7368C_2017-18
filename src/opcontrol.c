@@ -17,7 +17,7 @@
 
      while (1) {
 
-        printf("encoder %d", driveGetPos());
+        printf("encoder %d", encoderGet(leftEncoder));
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
 

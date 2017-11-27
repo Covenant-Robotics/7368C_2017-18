@@ -16,8 +16,8 @@
 #define LIFT_POT 1     // Potentiometers
 #define MOGO_POT 4
 
-#define JUMPER_1 1
-#define JUMPER_2 2
-#define JUMPER_3 3
+#define JUMPER_1 10
+#define JUMPER_2 11
+#define JUMPER_3 12
 
 #endif

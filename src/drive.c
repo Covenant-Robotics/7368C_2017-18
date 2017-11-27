@@ -3,7 +3,6 @@ Drive Code
 */
 #include "main.h"
 
-Encoder leftEncoder;
 int driveGetPos(){
   return encoderGet(leftEncoder);
 }
