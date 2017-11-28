@@ -11,10 +11,6 @@ int driveRightPos() {
   return encoderGet(rightEncoder);
 }
 
-int driveGetPos(){
-  return (driveRightPos() + driveLeftPos()) / 2;
-}
-
 void driveSet (int left, int right)
 {
   blrsMotorSet(LEFT_FRONT, left, false); //slot 2
@@ -36,4 +32,11 @@ void driveInit()
 void driveReset (){
   encoderReset(leftEncoder);
   encoderReset(rightEncoder);
+}
+
+int driveGetPos(){
+  int leftPos, rightPos;
+  leftPos = encoderGet(leftEncoder);
+  rightPos = encoderGet(rightEncoder);
+  return ((leftPos + rightPos) / 2);
 }

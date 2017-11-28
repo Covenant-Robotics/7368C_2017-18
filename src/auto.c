@@ -115,7 +115,7 @@ else if(digitalRead(JUMPER_2) == 1){
   driveReset();
     delay(20);
   rackSet(127);                               // Rack out
-    delay(1300);
+    delay(1200);
   rackSet(0);
   ////////////////////////////////////////////
   while(analogRead(LIFT_POT) > 700) {         //Lift up
