@@ -7,14 +7,12 @@
 #include "drive.h"
 #include "intake.h"
 #include "mtrmgr.h"
+#include "i2cTask.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-Encoder leftEncoder, rightEncoder;
-
 
 
 // A function prototype looks exactly like its declaration, but with a semicolon instead of

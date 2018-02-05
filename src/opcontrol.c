@@ -13,12 +13,13 @@
   int claw;
   int mogo;
   bool halfButtonPress = false;
-	//bool quarterButtonPress = false;
+	//bool thirdButtonPress = false;
 
      while (1) {
 
-        printf("left %d", encoderGet(leftEncoder));
-        printf("right %d", encoderGet(rightEncoder));
+        // printf("lift %d", analogRead(LIFT_POT));
+
+        // printf("mogo %d", analogRead(MOGO_POT));
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
 
@@ -36,16 +37,16 @@
 				 	power = power / 2;
 					turn = turn / 2;
 				 }
-         /*
+/*
 				 if (buttonIsNewPress (JOY1_8L))
-				 	 quarterButtonPress = !quarterButtonPress;
+				 	 thirdButtonPress = !thirdButtonPress;
 
-				 if (quarterButtonPress)
+				 if (thirdButtonPress)
 				 {
 					 power = power / 3.3;
 					 turn = turn / 3.3;
 				 }
-         */
+*/
 			   driveSet(power + turn, power - turn);
 
 /*

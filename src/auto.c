@@ -1,16 +1,7 @@
 #include "main.h"
 
 void autonomous() {
-/*
-        clawSet(-80);
-        rackSet(127);
-        delay(50);
-        clawSet(0);
-        delay(950);
-        rackSet(0);
-        clawSet(-80);
-        // driveSet(127, 127);
-*/
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////               ?????????????           LEFT AUTON           ?????????????               ////
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -260,3 +251,81 @@ else if(digitalRead(JUMPER_3) == 1){
 } // end right auton
 
 } // end autnomous
+
+/*
+  if(digitalRead(JUMPER_2) == 0){
+        rackSet(127);
+        delay(760);
+        rackSet(0);
+        while(analogRead(LIFT_POT) > 870){         //Lift up to clear mogo intake
+          liftSet(127);
+        }
+        liftSet(0);
+        driveSet(45, 45);
+        delay(785);
+        driveSet(0, 0);
+        rackSet(-127);
+        delay(800);
+        rackSet(0);
+        while(analogRead(LIFT_POT) < 1305){          // Lift Down
+            liftSet(-40);
+            delay(20);
+          }
+        while(analogRead(LIFT_POT) < 1400){
+          liftSet(-40);
+          rackSet(127);
+        }
+        delay(100);
+        liftSet(0);
+        delay(450);
+        rackSet(0);
+        delay(500);
+        while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goal
+          liftSet(127);
+        }
+        liftSet(0);
+        driveSet(0, -100);
+        delay(900);
+        driveSet(-45, -45);
+        delay(1000);
+        driveSet(0, 0);
+      }
+
+      if(digitalRead(JUMPER_3) == 0){
+            rackSet(127);
+            delay(760);
+            rackSet(0);
+            while(analogRead(LIFT_POT) > 870){         //Lift up to clear mogo intake
+              liftSet(127);
+            }
+            liftSet(0);
+            driveSet(45, 45);
+            delay(785);
+            driveSet(0, 0);
+            rackSet(-127);
+            delay(800);
+            rackSet(0);
+            while(analogRead(LIFT_POT) < 1305){          // Lift Down
+                liftSet(-40);
+                delay(20);
+              }
+            while(analogRead(LIFT_POT) < 1400){
+              liftSet(-40);
+              rackSet(127);
+            }
+            delay(100);
+            liftSet(0);
+            delay(450);
+            rackSet(0);
+            delay(500);
+            while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
+              liftSet(127);
+            }
+            liftSet(0);
+            driveSet(-100, 0);
+            delay(900);
+            driveSet(-45, -45);
+            delay(1000);
+            driveSet(0, 0);
+          }
+*/
