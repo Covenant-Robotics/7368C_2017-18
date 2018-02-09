@@ -20,6 +20,9 @@
         // printf("lift %d", analogRead(LIFT_POT));
 
         // printf("mogo %d", analogRead(MOGO_POT));
+
+        // printf("drive %d", driveGetPos());
+
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
 

@@ -21,9 +21,10 @@
 #define JUMPER_1 10    // Auton Selectors
 #define JUMPER_2 11
 #define JUMPER_3 12
+#define JUMPER_4 9
 
 #define IME_LEFT 0
-#define IME_RIGHT 1
-#define NUM_IME 2
+// #define IME_RIGHT 1
+#define NUM_IME 1 //currently...
 
 #endif

@@ -2,6 +2,8 @@
 Drive Code
 */
 #include "main.h"
+
+  int counts;
 /*
 Encoder leftEncoder, rightEncoder;
 
@@ -29,22 +31,26 @@ void driveInit()
   blrsMotorInit(LEFT_BACK, false , 0.5f, NULL);
   blrsMotorInit(RIGHT_FRONT, true , 0.5f, NULL);
   blrsMotorInit(RIGHT_BACK, true , 0.5f, NULL);
+  imeInitializeAll();
 }
 
 void imeInit()
 {
   int num_IMEs_initialized = imeInitializeAll();
   if (num_IMEs_initialized != NUM_IME) {
+  imeReset(IME_LEFT);
+  imeInitializeAll();
 }
+
 }
 
 void driveReset (){
   // encoderReset(leftEncoder);
   // encoderReset(rightEncoder);
   imeReset(IME_LEFT);
-  imeReset(IME_RIGHT);
+  // imeReset(IME_RIGHT);
 }
-
+/*
 int driveLeftPos() {
   int driveLeftPos;
   imeGet(IME_LEFT, &driveLeftPos);
@@ -56,10 +62,15 @@ int driveRightPos() {
   imeGet(IME_RIGHT, &driveRightPos);
   return driveRightPos;
 }
-
-int driveGetPos() {
+*/
+/*
+ driveGetPos() :--
   int leftPos, rightPos;
   leftPos = imeGet(IME_LEFT, &leftPos);
   rightPos = imeGet(IME_RIGHT, &rightPos);
   return ((leftPos + rightPos) / 2);
+  */
+int driveGetPos() {
+  imeGet(IME_LEFT, &counts);
+  return counts;
 }
