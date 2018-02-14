@@ -18,10 +18,12 @@
 #define LIFT_POT 5     // Potentiometers
 #define MOGO_POT 6
 
-#define JUMPER_1 10    // Auton Selectors
-#define JUMPER_2 11
-#define JUMPER_3 12
-#define JUMPER_4 9
+#define JUMPER_1 7    // Auton Selectors
+#define JUMPER_2 8
+#define JUMPER_3 9
+#define JUMPER_4 10
+#define JUMPER_5 11
+#define JUMPER_6 12
 
 #define IME_LEFT 0
 // #define IME_RIGHT 1

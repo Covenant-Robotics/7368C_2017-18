@@ -12,16 +12,16 @@
   int rack;
   int claw;
   int mogo;
-  bool halfButtonPress = false;
+//  bool halfButtonPress = false;
 	//bool thirdButtonPress = false;
 
      while (1) {
 
-        // printf("lift %d", analogRead(LIFT_POT));
+       // printf("lift %d", analogRead(LIFT_POT));
 
         // printf("mogo %d", analogRead(MOGO_POT));
 
-        // printf("drive %d", driveGetPos());
+        printf("drive %d", driveGetPos());
 
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
@@ -31,7 +31,7 @@
 				 else if (turn < -60)
 				 	turn = -60;
 
-
+/*
 				 if (buttonIsNewPress(JOY1_8R))
 					halfButtonPress = !halfButtonPress;
 
@@ -40,6 +40,7 @@
 				 	power = power / 2;
 					turn = turn / 2;
 				 }
+*/
 /*
 				 if (buttonIsNewPress (JOY1_8L))
 				 	 thirdButtonPress = !thirdButtonPress;
@@ -63,13 +64,13 @@
 */
 
          // Mobile Goal Controls
-         if (buttonGetState(JOY1_7U)) {
+         if (buttonGetState(JOY1_8U)) {       //Button 8U for Up Mogo
            mogo = 127;
          }
-         else if(buttonGetState(JOY1_7D)) {   //Button 8D for Out Rack
+         else if(buttonGetState(JOY1_8D)) {   //Button 8D for Out Mogo
            mogo = -90;
          }
-         else if(buttonGetState(JOY1_7L)) {
+         else if(buttonGetState(JOY1_8L)) {   //Button 8L for slower mogo up
            mogo = 90;
          }
          else {
@@ -78,10 +79,10 @@
          mogoSet(mogo);
 
          // Lift Stuff
-         if (buttonGetState(JOY1_6U)) {        //Button 8U for In Rack
+         if (buttonGetState(JOY1_6U)) {        //Button 8U for Up Lift
            lift = 80;
          }
-         else if(buttonGetState(JOY1_6D)) {   //Button 8D for Out Rack
+         else if(buttonGetState(JOY1_6D)) {   //Button 8D for Down Lift
            lift = -80;
          }
          else {
