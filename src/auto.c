@@ -5,13 +5,16 @@ void autonomous() {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   ////                ?????????????     LEFT MIDDLE AUTON        ?????????????                ////
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  if(digitalRead(JUMPER_1) == 1){
+  if(digitalRead(JUMPER_1) == 0){
     driveReset();
       delay(20);
     rackSet(127);                               // Rack out
-      delay(1200);
+      delay(1000);
     rackSet(0);
     ////////////////////////////////////////////
+    while(driveGetPos() < 100) {
+      driveSet(127, 0);
+    }
     while(analogRead(LIFT_POT) > 700) {         //Lift up
       liftSet(80);
       delay(20);
@@ -63,16 +66,15 @@ void autonomous() {
     // delay(500);
     ////////////////////////////////////////////
     driveSet(0, 0);
-  }
-  // end left middle auton
+  } // end left middle auton
   ////////////////////////////////////////////////////////////////////////////////////////////////
   ////                ?????????????     RIGHT MIDDLE AUTON        ?????????????               ////
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_2) == 1){
+  else if(digitalRead(JUMPER_2) == 0){
     driveReset();
       delay(20);
     rackSet(127);                               // Rack out
-      delay(1200);
+      delay(1000);
     rackSet(0);
     ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 700) {         //Lift up
@@ -128,21 +130,14 @@ void autonomous() {
     ////////////////////////////////////////////
     driveSet(0, 0);
     driveReset();
-  }
-  // end right middle auton
-
+  } // end right middle auton
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////            ?????????????           LEFT 5-pt AUTON           ?????????????             ////
 ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_3) == 1){
+  else if(digitalRead(JUMPER_3) == 0){
     driveReset();
-    while(driveGetPos() > -180){                // Spin left to face mogo
-      driveSet(-45, 45);
-      rackSet(127);                             // Rack out
-      delay(20);
-    }
-    driveSet(0, 0);
-    delay(400);                                 // Finish rack out
+    rackSet(127);
+    delay(600);                                 // Finish rack out
     rackSet(0);
     ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 1300){         // Lift up to clear mogo intake
@@ -152,7 +147,7 @@ void autonomous() {
     }
     liftSet(0);
     ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) > 1510){          // Mogo intake out
+    while(analogRead(MOGO_POT) < 1510){          // Mogo intake out
       mogoSet(-90);
       delay(20);
     }
@@ -179,30 +174,110 @@ void autonomous() {
     }
     liftSet(0);
     ////////////////////////////////////////////
-    while(driveGetPos() > -400){                // Return to scoring zone
+    while(driveGetPos() > -300){                // Return to scoring zone
       driveSet(-80, -80);
       delay(20);
     }
-  }
-
-
+    ////////////////////////////////////////////
+    while(driveGetPos() < 300) {                // Spin to face 5-pt zone
+      driveSet(45, -45);
+      delay(20);
+    }
+    ////////////////////////////////////////////
+    while(analogRead(MOGO_POT) < 1510) {        // Drop mogo in 5-pt zone
+      mogoSet(-90);
+      delay(20);
+    }
+    driveReset();
+    ////////////////////////////////////////////
+    while(driveGetPos() > -100) {               // Back away from mogo
+      driveSet(-80, -80);                       // so it is scored
+      delay(20);
+    }
+  } // end left 5-pt auton
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////            ?????????????           RIGHT 5-pt AUTON           ?????????????            ////
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
+else if(digitalRead(JUMPER_4) == 0){
+  driveReset();
+  rackSet(127);
+  delay(600);                                 // Finish rack out
+  rackSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(LIFT_POT) > 1300){         // Lift up to clear mogo intake
+    liftSet(127);
+    rackSet(-127);                            // Rack back in
+    delay(20);
+  }
+  liftSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(MOGO_POT) < 1050){          // Mogo intake out
+    mogoSet(-90);
+    delay(20);
+  }
+  mogoSet(0);
+  rackSet(0);                                 // Stop rack
+  ////////////////////////////////////////////
+  while(driveGetPos() < 1475){                // Drive into mogo
+    driveSet(80, 80);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(200);
+  ////////////////////////////////////////////
+  while(analogRead(MOGO_POT) > 180){         // Intake mogo
+    mogoSet(127);
+    delay(20);
+  }
+  mogoSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(LIFT_POT) < 1400){         // Drop arm
+    liftSet(-100);
+    delay(20);
+  }
+  liftSet(0);
+  ////////////////////////////////////////////
+  while(driveGetPos() > -340){                // Return to scoring zone
+    driveSet(-80, -80);
+    delay(20);
+  }
+  ////////////////////////////////////////////
+  while(driveGetPos() < 25) {                // Spin to face 5-pt zone
+    driveSet(45, -45);
+    delay(20);
+  }
+  ////////////////////////////////////////////
+  rackSet(127);
+  delay(200);
+  liftSet(-90);
+  delay(600);
+  rackSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(LIFT_POT) > 900) {
+    liftSet(90);
+    delay(20);
+  }
+  ////////////////////////////////////////////
+  while(analogRead(MOGO_POT) < 1000) {        // Drop mogo in 5-pt zone
+    mogoSet(-90);
+    delay(20);
+  }
+  mogoSet(0);
+  driveReset();
+  ////////////////////////////////////////////
+  while(driveGetPos() > -25) {                // Back away from mogo
+    driveSet(-45, -45);                       // so it is scored
+    delay(20);
+  }
+} // end right 5-pt auton
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////            ?????????????           LEFT 10-pt AUTON           ?????????????            ////
 ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_5) == 1){
+  else if(digitalRead(JUMPER_5) == 0){
     driveReset();
-    while(driveGetPos() > -180) {               // Spin left to face mogo
-      driveSet(-45, 45);
-      rackSet(127);                             // Rack out
-      delay(20);
-    }
-    driveSet(0, 0);
-    driveReset();
-    delay(400);                                 // Finish Rack Out
+    rackSet(127);
+    delay(600);                                 // Finish Rack Out
     rackSet(0);
     ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 1300){         // Lift up to clear mogo intake
@@ -291,12 +366,11 @@ void autonomous() {
     }
     mogoSet(0);
     driveReset();
-  }
-// end left 10-pt auton
+  } // end left 10-pt auton
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////           ?????????????           RIGHT 10-pt AUTON           ?????????????           ////
 ///////////////////////////////////////////////////////////////////////////////////////////////
-else if(digitalRead(JUMPER_6) == 1){
+else if(digitalRead(JUMPER_6) == 0){
   driveReset();
   while(driveGetPos() < -100) {               // Spin left to face mogo
     driveSet(45, -45);

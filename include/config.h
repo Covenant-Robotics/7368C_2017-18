@@ -21,7 +21,7 @@
 #define JUMPER_1 7    // Auton Selectors
 #define JUMPER_2 8
 #define JUMPER_3 9
-#define JUMPER_4 10
+#define JUMPER_4 2
 #define JUMPER_5 11
 #define JUMPER_6 12
 
