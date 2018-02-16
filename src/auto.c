@@ -134,70 +134,6 @@ void autonomous() {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////            ?????????????           LEFT 5-pt AUTON           ?????????????             ////
 ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_3) == 0){
-    driveReset();
-    rackSet(127);
-    delay(600);                                 // Finish rack out
-    rackSet(0);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 1300){         // Lift up to clear mogo intake
-      liftSet(127);
-      rackSet(-127);                            // Rack back in
-      delay(20);
-    }
-    liftSet(0);
-    ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) < 1510){          // Mogo intake out
-      mogoSet(-90);
-      delay(20);
-    }
-    rackSet(0);                                 // Stop rack
-    mogoSet(0);
-    ////////////////////////////////////////////
-    while(driveGetPos() < 1500){                // Drive into mogo
-      driveSet(80, 80);
-      delay(20);
-    }
-    driveSet(0, 0);
-    driveReset();
-    delay(200);
-    ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) > 100){         // Intake mogo
-      mogoSet(127);
-      delay(20);
-    }
-    mogoSet(0);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1400){         // Drop arm
-      liftSet(-100);
-      delay(20);
-    }
-    liftSet(0);
-    ////////////////////////////////////////////
-    while(driveGetPos() > -300){                // Return to scoring zone
-      driveSet(-80, -80);
-      delay(20);
-    }
-    ////////////////////////////////////////////
-    while(driveGetPos() < 300) {                // Spin to face 5-pt zone
-      driveSet(45, -45);
-      delay(20);
-    }
-    ////////////////////////////////////////////
-    while(analogRead(MOGO_POT) < 1510) {        // Drop mogo in 5-pt zone
-      mogoSet(-90);
-      delay(20);
-    }
-    driveReset();
-    ////////////////////////////////////////////
-    while(driveGetPos() > -100) {               // Back away from mogo
-      driveSet(-80, -80);                       // so it is scored
-      delay(20);
-    }
-  } // end left 5-pt auton
-////////////////////////////////////////////////////////////////////////////////////////////////
-////            ?????????????           RIGHT 5-pt AUTON           ?????????????            ////
-////////////////////////////////////////////////////////////////////////////////////////////////
 else if(digitalRead(JUMPER_4) == 0){
   driveReset();
   rackSet(127);
@@ -211,8 +147,9 @@ else if(digitalRead(JUMPER_4) == 0){
   }
   liftSet(0);
   ////////////////////////////////////////////
-  while(analogRead(MOGO_POT) < 1050){          // Mogo intake out
+  while(analogRead(MOGO_POT) < 1025){          // Mogo intake out
     mogoSet(-90);
+    driveSet(80, 80);
     delay(20);
   }
   mogoSet(0);
@@ -226,7 +163,7 @@ else if(digitalRead(JUMPER_4) == 0){
   driveReset();
   delay(200);
   ////////////////////////////////////////////
-  while(analogRead(MOGO_POT) > 180){         // Intake mogo
+  while(analogRead(MOGO_POT) > 200){         // Intake mogo
     mogoSet(127);
     delay(20);
   }
@@ -243,7 +180,7 @@ else if(digitalRead(JUMPER_4) == 0){
     delay(20);
   }
   ////////////////////////////////////////////
-  while(driveGetPos() < 25) {                // Spin to face 5-pt zone
+  while(driveGetPos() < 300) {                // Spin to face 5-pt zone
     driveSet(45, -45);
     delay(20);
   }
@@ -252,6 +189,8 @@ else if(digitalRead(JUMPER_4) == 0){
   delay(200);
   liftSet(-90);
   delay(600);
+  liftSet(0);
+  delay(400);
   rackSet(0);
   ////////////////////////////////////////////
   while(analogRead(LIFT_POT) > 900) {
@@ -266,7 +205,86 @@ else if(digitalRead(JUMPER_4) == 0){
   mogoSet(0);
   driveReset();
   ////////////////////////////////////////////
-  while(driveGetPos() > -25) {                // Back away from mogo
+  while(driveGetPos() > -60) {                // Back away from mogo
+    driveSet(-45, -45);                       // so it is scored
+    delay(20);
+  }
+} // end right 5-pt auton
+////////////////////////////////////////////////////////////////////////////////////////////////
+////            ?????????????           RIGHT 5-pt AUTON           ?????????????            ////
+////////////////////////////////////////////////////////////////////////////////////////////////
+else if(digitalRead(JUMPER_4) == 0){
+  driveReset();
+  rackSet(127);
+  delay(600);                                 // Finish rack out
+  rackSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(LIFT_POT) > 1300){         // Lift up to clear mogo intake
+    liftSet(127);
+    rackSet(-127);                            // Rack back in
+    delay(20);
+  }
+  liftSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(MOGO_POT) < 1025){          // Mogo intake out
+    mogoSet(-90);
+    driveSet(80, 80);
+    delay(20);
+  }
+  mogoSet(0);
+  rackSet(0);                                 // Stop rack
+  ////////////////////////////////////////////
+  while(driveGetPos() < 1475){                // Drive into mogo
+    driveSet(80, 80);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(200);
+  ////////////////////////////////////////////
+  while(analogRead(MOGO_POT) > 200){         // Intake mogo
+    mogoSet(127);
+    delay(20);
+  }
+  mogoSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(LIFT_POT) < 1400){         // Drop arm
+    liftSet(-100);
+    delay(20);
+  }
+  liftSet(0);
+  ////////////////////////////////////////////
+  while(driveGetPos() > -340){                // Return to scoring zone
+    driveSet(-80, -80);
+    delay(20);
+  }
+  ////////////////////////////////////////////
+  while(driveGetPos() < 300) {                // Spin to face 5-pt zone
+    driveSet(45, -45);
+    delay(20);
+  }
+  ////////////////////////////////////////////
+  rackSet(127);
+  delay(200);
+  liftSet(-90);
+  delay(600);
+  liftSet(0);
+  delay(400);
+  rackSet(0);
+  ////////////////////////////////////////////
+  while(analogRead(LIFT_POT) > 900) {
+    liftSet(90);
+    delay(20);
+  }
+  ////////////////////////////////////////////
+  while(analogRead(MOGO_POT) < 1000) {        // Drop mogo in 5-pt zone
+    mogoSet(-90);
+    delay(20);
+  }
+  mogoSet(0);
+  driveReset();
+  ////////////////////////////////////////////
+  while(driveGetPos() > -60) {                // Back away from mogo
     driveSet(-45, -45);                       // so it is scored
     delay(20);
   }

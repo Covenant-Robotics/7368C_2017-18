@@ -5,7 +5,7 @@
    pinMode(JUMPER_1, INPUT);
    pinMode(JUMPER_2, INPUT);
    pinMode(JUMPER_3, INPUT);
-   // watchdogInit();
+   watchdogInit();
  }
 
 void initialize() {
@@ -13,5 +13,5 @@ void initialize() {
   driveInit();
   intakeInit();
   imeInit();
-  // i2cTaskStart();
+  i2cTaskStart();
 }

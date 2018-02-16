@@ -27,6 +27,6 @@
 
 #define IME_LEFT 0
 // #define IME_RIGHT 1
-#define NUM_IME 1 //currently...
+#define NUM_IMES 1
 
 #endif

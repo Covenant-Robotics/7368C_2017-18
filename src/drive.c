@@ -34,14 +34,6 @@ void driveInit()
   imeInitializeAll();
 }
 
-void imeInit()
-{
-  int num_IMEs_initialized = imeInitializeAll();
-  if (num_IMEs_initialized != NUM_IME) {
-  imeReset(IME_LEFT);
-  imeInitializeAll();
-}
-
 }
 
 void driveReset (){
