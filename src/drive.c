@@ -34,8 +34,6 @@ void driveInit()
   imeInitializeAll();
 }
 
-}
-
 void driveReset (){
   // encoderReset(leftEncoder);
   // encoderReset(rightEncoder);

@@ -17,7 +17,7 @@
 
      while (1) {
 
-       // printf("lift %d", analogRead(LIFT_POT));
+        // printf("lift %d", analogRead(LIFT_POT));
 
         // printf("mogo %d", analogRead(MOGO_POT));
 

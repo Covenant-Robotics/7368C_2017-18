@@ -1,3 +1,5 @@
+/*
+
 #include "main.h"
 
 #define CYCLE_TIME 2 //loop delay in milliseconds
@@ -24,3 +26,4 @@ static void i2cHandler(void* ignore) {
 void i2cTaskStart() {
   taskCreate(i2cHandler, TASK_DEFAULT_STACK_SIZE, NULL, (TASK_PRIORITY_DEFAULT + 2));
 }
+*/

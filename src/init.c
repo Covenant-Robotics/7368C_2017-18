@@ -12,6 +12,6 @@ void initialize() {
   motorManagerInit();
   driveInit();
   intakeInit();
-  imeInit();
-  i2cTaskStart();
+  // imeInit();
+  // i2cTaskStart();
 }
