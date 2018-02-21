@@ -12,7 +12,7 @@
   int rack;
   int claw;
   int mogo;
-//  bool halfButtonPress = false;
+  bool halfButtonPress = false;
 	//bool thirdButtonPress = false;
 
      while (1) {
@@ -34,8 +34,8 @@
 				 else if (turn < -60)
 				 	turn = -60;
 
-/*
-				 if (buttonIsNewPress(JOY1_8R))
+
+				 if (buttonIsNewPress(JOY1_7R))
 					halfButtonPress = !halfButtonPress;
 
 				 if (halfButtonPress)
@@ -43,7 +43,7 @@
 				 	power = power / 2;
 					turn = turn / 2;
 				 }
-*/
+
 /*
 				 if (buttonIsNewPress (JOY1_8L))
 				 	 thirdButtonPress = !thirdButtonPress;
