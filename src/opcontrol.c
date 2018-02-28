@@ -29,10 +29,10 @@
          power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
          turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
 
-				 if (turn > 60)  //Max turn value is 60
-				 	turn = 60;
-				 else if (turn < -60)
-				 	turn = -60;
+				 if (turn > 80)  //Max turn value is 60
+				 	turn = 80;
+				 else if (turn < -80)
+				 	turn = -80;
 
 
 				 if (buttonIsNewPress(JOY1_7R))
