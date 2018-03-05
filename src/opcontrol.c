@@ -86,7 +86,7 @@
            lift = 80;
          }
          else if(buttonGetState(JOY1_6D)) {   //Button 8D for Down Lift
-           lift = -80;
+           lift = -100;
          }
          else {
            lift = 0;
