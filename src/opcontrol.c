@@ -116,7 +116,20 @@
             claw = 0;     //Claw =0
           }
           clawSet(claw);
-
+/*
+          if (buttonGetState(JOY1_8L)) {
+            while(LIFT_POT < 1999) {
+              liftSet(-90);
+              delay(20);
+            }
+          }
+          else if (buttonGetState(JOY1_8R)) {
+            while(LIFT_POT < 1999) {
+              liftSet(-90);
+              delay(20);
+            }
+          }
+*/
          delay(20);
      }
 

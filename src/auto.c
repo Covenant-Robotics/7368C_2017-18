@@ -9,49 +9,44 @@ void autonomous() {
     driveReset();
       delay(20);
     rackSet(127);                               // Rack out
-      delay(1000);
+      delay(1200);
     rackSet(0);
     ////////////////////////////////////////////
-    while(driveGetPos() < 100) {                // Turn to face Stationary
-      driveSet(45, -45);
-    }
-    driveReset();
     while(analogRead(LIFT_POT) > 700) {         //Lift up
       liftSet(80);
       delay(20);
     }
     liftSet(0);
+    driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() < 230) {                //Drive forward
-      driveSet(40, 40);
+    while(driveGetPos() < 240) {                //Drive forward
+      driveSet(45, 45);
       delay(20);
     }
     driveSet(0, 0);
-    delay(500);
+    driveReset();
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1305){         // Lift Down
-        liftSet(-40);
-        delay(20);
-      }
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1345){
+    while(analogRead(LIFT_POT) < 1240){
       liftSet(-40);
-      // rackSet(127);  // not used because it releases by driving forward
+      // rackSet(127);
       delay(20);
     }
     driveReset();
     delay(500);
     ////////////////////////////////////////////
-    while(driveGetPos() < 60) {
-      driveSet(40, 40);
+    while(LIFT_POT < 1300) {
+      liftSet(-40);
+      driveSet(35, 35);
       delay(20);
     }
     delay(300);
+    ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
       liftSet(127);
       delay(20);
     }
     liftSet(0);
+    driveReset();
     ////////////////////////////////////////////
     // clawSet(100);                            // Open claw
     ////////////////////////////////////////////
@@ -74,11 +69,11 @@ void autonomous() {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   ////             ?????????????     RIGHT BLUE MIDDLE AUTON        ?????????????             ////
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_4) == 0){
+  else if(digitalRead(JUMPER_4) == 0) {
     driveReset();
       delay(20);
     rackSet(127);                               // Rack out
-      delay(1000);
+      delay(1200);
     rackSet(0);
     ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 700) {         //Lift up
@@ -86,26 +81,16 @@ void autonomous() {
       delay(20);
     }
     liftSet(0);
+    driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() > -100) {                //Drive forward
-      driveSet(-45, 45);
+    while(driveGetPos() < 240) {                //Drive forward
+      driveSet(45, 45);
       delay(20);
     }
     driveSet(0, 0);
     driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() < 230) {                //Drive forward
-      driveSet(45, 45);
-      delay(20);
-    }
-    driveSet(0, 0);
-    delay(500);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1305){         // Lift Down
-        liftSet(-40);
-        delay(20);
-      }
-    while(analogRead(LIFT_POT) < 1345){
+    while(analogRead(LIFT_POT) < 1240){
       liftSet(-40);
       // rackSet(127);
       delay(20);
@@ -113,11 +98,13 @@ void autonomous() {
     driveReset();
     delay(500);
     ////////////////////////////////////////////
-    while(driveGetPos() < 60) {
-      driveSet(32, 32);
+    while(LIFT_POT < 1300) {
+      liftSet(-40);
+      driveSet(35, 35);
       delay(20);
     }
     delay(300);
+    ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
       liftSet(127);
       delay(20);
@@ -130,16 +117,39 @@ void autonomous() {
     //stuff deleted
     //clawSet(0);
     ////////////////////////////////////////////
-    delay(500);                                  // Turn out of 5-point zone
+    delay(300);                                  // Turn out of 5-point zone
     while(driveGetPos() > -100) {
-    driveSet(-80, 0);
-    delay(1000);
+    driveSet(-45, -45);
+    liftSet(-80);
+    delay(20);
+    }
+    driveSet(0, 0);
+    driveReset();
+    ////////////////////////////////////////////
+    while(driveGetPos() < 50) {
+    driveSet(45, -45);
+    delay(20);
+    }
+    driveSet(0, 0);
+    driveReset();
+    liftSet(0);
+    ////////////////////////////////////////////
+    while(LIFT_POT > 1490) {
+      liftSet(40);
+      delay(20);
     }
     ////////////////////////////////////////////
-    driveSet(-60, -45);                         // Back up while turning slightly
-    delay(1000);
+    while(driveGetPos() < 210) {
+      driveSet(85, 85);
+    }
     ////////////////////////////////////////////
-                                                // Turn to face mogo
+    while(driveGetPos() < 250) {
+      liftSet(60);
+      driveSet(30, 30);
+    }
+    while(driveGetPos() > 180) {
+      driveSet(-50, -50);
+    }
     ////////////////////////////////////////////
     driveSet(0, 0);
     driveReset();
@@ -147,50 +157,48 @@ void autonomous() {
   ////////////////////////////////////////////////////////////////////////////////////////////////
   ////              ?????????????     LEFT RED MIDDLE AUTON        ?????????????              ////
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  if(digitalRead(JUMPER_5) == 0){
+  else if(digitalRead(JUMPER_5) == 0){
     driveReset();
       delay(20);
     rackSet(127);                               // Rack out
-      delay(1000);
+      delay(1200);
     rackSet(0);
     ////////////////////////////////////////////
-    while(driveGetPos() < 100) {                // Turn to face Stationary
-      driveSet(45, -45);
-    }
     while(analogRead(LIFT_POT) > 700) {         //Lift up
       liftSet(80);
       delay(20);
     }
     liftSet(0);
+    driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() < 230) {                //Drive forward
-      driveSet(40, 40);
+    while(driveGetPos() < 240) {                //Drive forward
+      driveSet(45, 45);
       delay(20);
     }
     driveSet(0, 0);
-    delay(500);
+    driveReset();
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1305){         // Lift Down
-        liftSet(-40);
-        delay(20);
-      }
-    while(analogRead(LIFT_POT) < 1345){
+    while(analogRead(LIFT_POT) < 1240){
       liftSet(-40);
       // rackSet(127);
       delay(20);
     }
     driveReset();
     delay(500);
-    while(driveGetPos() < 60) {
-      driveSet(40, 40);
+    ////////////////////////////////////////////
+    while(LIFT_POT < 1300) {
+      liftSet(-40);
+      driveSet(35, 35);
       delay(20);
     }
     delay(300);
+    ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
       liftSet(127);
       delay(20);
     }
     liftSet(0);
+    driveReset();
     ////////////////////////////////////////////
     // clawSet(100);                            // Open claw
     ////////////////////////////////////////////
@@ -216,7 +224,7 @@ void autonomous() {
     driveReset();
       delay(20);
     rackSet(127);                               // Rack out
-      delay(1000);
+      delay(1200);
     rackSet(0);
     ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 700) {         //Lift up
@@ -224,26 +232,16 @@ void autonomous() {
       delay(20);
     }
     liftSet(0);
+    driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() > -100) {                //Drive forward
-      driveSet(-45, 45);
+    while(driveGetPos() < 240) {                //Drive forward
+      driveSet(45, 45);
       delay(20);
     }
     driveSet(0, 0);
     driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() < 230) {                //Drive forward
-      driveSet(45, 45);
-      delay(20);
-    }
-    driveSet(0, 0);
-    delay(500);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1305){         // Lift Down
-        liftSet(-40);
-        delay(20);
-      }
-    while(analogRead(LIFT_POT) < 1345){
+    while(analogRead(LIFT_POT) < 1240){
       liftSet(-40);
       // rackSet(127);
       delay(20);
@@ -251,11 +249,13 @@ void autonomous() {
     driveReset();
     delay(500);
     ////////////////////////////////////////////
-    while(driveGetPos() < 60) {
-      driveSet(32, 32);
+    while(LIFT_POT < 1300) {
+      liftSet(-40);
+      driveSet(35, 35);
       delay(20);
     }
     delay(300);
+    ////////////////////////////////////////////
     while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
       liftSet(127);
       delay(20);
@@ -268,8 +268,7 @@ void autonomous() {
     //stuff deleted
     //clawSet(0);
     ////////////////////////////////////////////
-    delay(500);                                  // Turn out of 5-point zone
-    while(driveGetPos() > -100) {
+    while(driveGetPos() > -100) {               // Turn out of 5-point zone
     driveSet(-80, 0);
     delay(1000);
     }
@@ -497,7 +496,7 @@ else if(digitalRead(JUMPER_9) == 0) {
   driveSet(0, 0);
   driveReset();
   ////////////////////////////////////////////
-  while(driveGetPos() < 340) {                // Spin to face 5-pt zone
+  while(driveGetPos() < 420) {                // Spin to face 5-pt zone
     driveSet(45, -45);
     delay(20);
   }
@@ -552,7 +551,7 @@ else if(digitalRead(JUMPER_10) == 0) {
   mogoSet(0);
   rackSet(0);                                 // Stop rack
   ////////////////////////////////////////////
-  while(driveGetPos() < 1240) {               // Drive into mogo
+  while(driveGetPos() < 1340) {               // Drive into mogo
     driveSet(80, 80);
     delay(20);
   }
