@@ -1,283 +1,107 @@
 #include "main.h"
 
 void autonomous() {
-
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  ////             ?????????????     LEFT BLUE MIDDLE AUTON        ?????????????              ////
+  ////              ?????????????     RIGHT RED MIDDLE AUTON        ?????????????             ////
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  if(digitalRead(JUMPER_3) == 0){
-    driveReset();
+  if(digitalRead(JUMPER_5) == 0) {
       delay(20);
     rackSet(127);                               // Rack out
       delay(1200);
     rackSet(0);
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 700) {         //Lift up
+    while(analogRead(LIFT_POT) > 800) {         //Lift up
       liftSet(80);
       delay(20);
     }
     liftSet(0);
     driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() < 240) {                //Drive forward
+    while(driveGetPos() < 168) {                //Drive forward
       driveSet(45, 45);
       delay(20);
     }
     driveSet(0, 0);
     driveReset();
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1240){
+    while(analogRead(LIFT_POT) < 1200){
       liftSet(-40);
       // rackSet(127);
       delay(20);
     }
     driveReset();
-    delay(500);
+    delay(200);
     ////////////////////////////////////////////
-    while(LIFT_POT < 1300) {
-      liftSet(-40);
+    while(driveGetPos() < 200) {
+      liftSet(-45);
       driveSet(35, 35);
       delay(20);
     }
+    driveSet(0, 0);
+    liftSet(0);
     delay(300);
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
+    while(analogRead(LIFT_POT) > 875){         //Lift up to clear stationary goals
       liftSet(127);
       delay(20);
     }
     liftSet(0);
-    driveReset();
-    ////////////////////////////////////////////
-    // clawSet(100);                            // Open claw
-    ////////////////////////////////////////////
-    //stuff deleted
-    //clawSet(0);
-    ////////////////////////////////////////////
-    delay(800);                                 // Turn out of 5-point zone
-    driveSet(0, -80);
+    driveSet(-80, 0);
+    delay(1100);
+    driveSet(-60, -45);
     delay(1000);
-    ////////////////////////////////////////////
-    driveSet(-45, -60);                         // Back up while turning slightly
-    delay(1000);
-    ////////////////////////////////////////////
-    // driveSet(45, -45);                          // Turn to face mogo
-    // delay(500);
-    ////////////////////////////////////////////
-    driveSet(0, 0);
-  } // end left middle auton
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  ////             ?????????????     RIGHT BLUE MIDDLE AUTON        ?????????????             ////
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_4) == 0) {
-    driveReset();
-      delay(20);
-    rackSet(127);                               // Rack out
-      delay(1200);
-    rackSet(0);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 700) {         //Lift up
-      liftSet(80);
-      delay(20);
-    }
-    liftSet(0);
-    driveReset();
-    ////////////////////////////////////////////
-    while(driveGetPos() < 240) {                //Drive forward
-      driveSet(45, 45);
-      delay(20);
-    }
-    driveSet(0, 0);
-    driveReset();
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1240){
-      liftSet(-40);
-      // rackSet(127);
-      delay(20);
-    }
-    driveReset();
-    delay(500);
-    ////////////////////////////////////////////
-    while(LIFT_POT < 1300) {
-      liftSet(-40);
-      driveSet(35, 35);
-      delay(20);
-    }
-    delay(300);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
-      liftSet(127);
-      delay(20);
-    }
-    liftSet(0);
-    driveReset();
-    ////////////////////////////////////////////
-    // clawSet(100);                             // Open claw
-    ////////////////////////////////////////////
-    //stuff deleted
-    //clawSet(0);
-    ////////////////////////////////////////////
-    delay(300);                                  // Turn out of 5-point zone
-    while(driveGetPos() > -100) {
-    driveSet(-45, -45);
-    liftSet(-80);
-    delay(20);
-    }
-    driveSet(0, 0);
-    driveReset();
-    ////////////////////////////////////////////
-    while(driveGetPos() < 50) {
-    driveSet(45, -45);
-    delay(20);
-    }
-    driveSet(0, 0);
-    driveReset();
-    liftSet(0);
-    ////////////////////////////////////////////
-    while(LIFT_POT > 1490) {
-      liftSet(40);
-      delay(20);
-    }
-    ////////////////////////////////////////////
-    while(driveGetPos() < 210) {
-      driveSet(85, 85);
-    }
-    ////////////////////////////////////////////
-    while(driveGetPos() < 250) {
-      liftSet(60);
-      driveSet(30, 30);
-    }
-    while(driveGetPos() > 180) {
-      driveSet(-50, -50);
-    }
-    ////////////////////////////////////////////
     driveSet(0, 0);
     driveReset();
   } // end right middle auton
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  ////              ?????????????     LEFT RED MIDDLE AUTON        ?????????????              ////
+  ////              ?????????????     LEFT MIDDLE AUTON        ?????????????              ////
   ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_5) == 0){
-    driveReset();
+  else if(digitalRead(JUMPER_6) == 0) {
       delay(20);
     rackSet(127);                               // Rack out
       delay(1200);
     rackSet(0);
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 700) {         //Lift up
+    while(analogRead(LIFT_POT) > 800) {         //Lift up
       liftSet(80);
       delay(20);
     }
     liftSet(0);
     driveReset();
     ////////////////////////////////////////////
-    while(driveGetPos() < 240) {                //Drive forward
+    while(driveGetPos() < 168) {                //Drive forward
       driveSet(45, 45);
       delay(20);
     }
     driveSet(0, 0);
     driveReset();
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1240){
+    while(analogRead(LIFT_POT) < 1200){
       liftSet(-40);
       // rackSet(127);
       delay(20);
     }
     driveReset();
-    delay(500);
+    delay(200);
     ////////////////////////////////////////////
-    while(LIFT_POT < 1300) {
-      liftSet(-40);
+    while(driveGetPos() < 200) {
+      liftSet(-45);
       driveSet(35, 35);
       delay(20);
     }
+    driveSet(0, 0);
+    liftSet(0);
     delay(300);
     ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
+    while(analogRead(LIFT_POT) > 875){         //Lift up to clear stationary goals
       liftSet(127);
       delay(20);
     }
     liftSet(0);
-    driveReset();
-    ////////////////////////////////////////////
-    // clawSet(100);                            // Open claw
-    ////////////////////////////////////////////
-    //stuff deleted
-    //clawSet(0);
-    ////////////////////////////////////////////
-    delay(800);                                 // Turn out of 5-point zone
-    driveSet(0, -80);
-    delay(1000);
-    ////////////////////////////////////////////
-    driveSet(-45, -60);                         // Back up while turning slightly
-    delay(1000);
-    ////////////////////////////////////////////
-    // driveSet(45, -45);                          // Turn to face mogo
-    // delay(500);
-    ////////////////////////////////////////////
-    driveSet(0, 0);
-  } // end left middle auton
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  ////              ?????????????     RIGHT RED MIDDLE AUTON        ?????????????             ////
-  ////////////////////////////////////////////////////////////////////////////////////////////////
-  else if(digitalRead(JUMPER_6) == 0){
-    driveReset();
-      delay(20);
-    rackSet(127);                               // Rack out
-      delay(1200);
-    rackSet(0);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 700) {         //Lift up
-      liftSet(80);
-      delay(20);
-    }
-    liftSet(0);
-    driveReset();
-    ////////////////////////////////////////////
-    while(driveGetPos() < 240) {                //Drive forward
-      driveSet(45, 45);
-      delay(20);
-    }
-    driveSet(0, 0);
-    driveReset();
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) < 1240){
-      liftSet(-40);
-      // rackSet(127);
-      delay(20);
-    }
-    driveReset();
-    delay(500);
-    ////////////////////////////////////////////
-    while(LIFT_POT < 1300) {
-      liftSet(-40);
-      driveSet(35, 35);
-      delay(20);
-    }
-    delay(300);
-    ////////////////////////////////////////////
-    while(analogRead(LIFT_POT) > 920){         //Lift up to clear stationary goals
-      liftSet(127);
-      delay(20);
-    }
-    liftSet(0);
-    driveReset();
-    ////////////////////////////////////////////
-    // clawSet(100);                             // Open claw
-    ////////////////////////////////////////////
-    //stuff deleted
-    //clawSet(0);
-    ////////////////////////////////////////////
-    while(driveGetPos() > -100) {               // Turn out of 5-point zone
     driveSet(-80, 0);
+    delay(1100);
+    driveSet(-60, -45);
     delay(1000);
-    }
-    ////////////////////////////////////////////
-    driveSet(-60, -45);                         // Back up while turning slightly
-    delay(1000);
-    ////////////////////////////////////////////
-                                                // Turn to face mogo
-    ////////////////////////////////////////////
     driveSet(0, 0);
     driveReset();
   } // end right middle auton
