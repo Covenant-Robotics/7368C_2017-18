@@ -1,6 +1,9 @@
 #ifndef _CHASSIS_H_
 #define _CHASSIS_H_
 
+  Encoder rightEncoder;
+  Encoder leftEncoder;
+  
 // int driveLeftPos();
 
 // int driveRightPos();
@@ -15,5 +18,9 @@ void imeInit();
 void driveReset();
 
 int driveGetPos();
+
+int driveLeftPos();
+
+int driveRightPos();
 
 #endif

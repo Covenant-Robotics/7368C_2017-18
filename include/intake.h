@@ -2,11 +2,26 @@
 #define INTAKE_H_
 
 #include "main.h"
+
+void puncherSet(int speed);
+
+void indexerSet(int index);
+
+void liftSet(int lift);
+
+void flipperSet(int flip);
+
+void spinnerSet(int spin);
+
+void intakeInit();
+////////////////////////////////////////////////////////////////////////////////
+/////                         LAST YEAR CODE                               /////
+////////////////////////////////////////////////////////////////////////////////
 /*
 // Creates stuff for Mobile Goal Intake
 // Pneumatics
 void mobilegoal(bool down);
-*/
+
 //Creates stuff for Mobile Goal Intake
 // Motors
 void mogoSet(int goal);
@@ -25,5 +40,5 @@ void clawSet(int claw);
 
 // Lets us initialize all the intake motors
 void intakeInit();
-
+*/
 #endif

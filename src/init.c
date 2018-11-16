@@ -2,9 +2,10 @@
 #include "main.h"
 
  void initializeIO() {
-   pinMode(JUMPER_1, INPUT);
-   pinMode(JUMPER_2, INPUT);
-   pinMode(JUMPER_3, INPUT);
+   pinMode(5, INPUT);
+   pinMode(6, INPUT);
+   pinMode(7, INPUT);
+   pinMode(8, INPUT);
    watchdogInit();
  }
 
