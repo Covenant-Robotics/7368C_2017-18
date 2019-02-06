@@ -1,20 +1,19 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
-#define LEFT_DRIVE_2 6     // Motors
-#define LEFT_DRIVE 2
-#define RIGHT_DRIVE 3
-#define RIGHT_DRIVE_2 4
-#define LIFT 7
-#define CAP_FLIPPER 5
-#define SPINNER_INTAKE 9
-#define PUNCHER 10
-#define INDEXER 8
+#define LEFT_DRIVE 2     // Motors
+#define LEFT_DRIVE_2 3
+#define RIGHT_DRIVE 4
+#define RIGHT_DRIVE_2 5
+#define BIG_SPINS 6
+#define TOP_SPINS 9
+#define PUNCH_RIGHT 8
+#define PUNCH_LEFTIE 7
 
-#define ENCODER_LEFT_TOP 1     // Encoders
-#define ENCODER_LEFT_BOTTOM 2
-#define ENCODER_RIGHT_TOP 3
-#define ENCODER_RIGHT_BOTTOM 4
+#define ENCODER_LEFT_TOP 3     // Encoders
+#define ENCODER_LEFT_BOTTOM 4
+#define ENCODER_RIGHT_TOP 5
+#define ENCODER_RIGHT_BOTTOM 6
 
 #define LIFT_POT 5     // Potentiometers
 #define FLIP_POT 6
@@ -32,8 +31,9 @@
 #define JUMPER_11 11
 #define JUMPER_12 12
 
-// #define IME_LEFT 0
-// #define IME_RIGHT 1
-// #define NUM_IMES 1
+#define IME_LEFT 0
+#define IME_RIGHT 1
+#define NUM_IMES 1
+#define CYCLE_TIME 2
 
 #endif

@@ -1,21 +1,24 @@
 #include "main.h"
 
- static int clamp(int in) {return (abs(in) > 15) ? in : 0; }
+ static int clamp(int in) {return (abs(in) > 20) ? in : 0; }
 
  void operatorControl() {
 
   // int rack;
   // int lift;
-  int power;
-  int turn;
-  int lift;
-  int flip;
+  int speed;
+  int twist;
+  // int lift;
+  // int flip;
+  // int angle;
   int spin;
   int punch;
-  int index;
-  bool indexing = !digitalRead(12);
-  bool spinUp = !digitalRead(12);
-  bool spinDown = !digitalRead(12);
+  // int index;
+  // bool indexing = !digitalRead(12);
+  // bool rollUp = !digitalRead(5);
+  // bool rollDown = !digitalRead(5);
+  // bool spinUp = !digitalRead(5);
+  // bool spinDown = !digitalRead(5);
   // bool flipping = !digitalRead(12);
   // bool flyHigh = !digitalRead(12);
   // bool flyLow = !digitalRead(12);
@@ -37,6 +40,8 @@
 
         // printf("drive %d", driveGetPos());
 
+        printf("drive %d", driveGetPos());
+
         // printf("left %d", driveLeftPos());
 
         // printf("auton %d", digitalRead(5));
@@ -48,13 +53,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 /////                       DRIVE CONTROLS                                 /////
 ////////////////////////////////////////////////////////////////////////////////
-         power = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
-         turn  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
-
-				 if (turn > 64)  //Max turn value is 60
-				 	turn = 64;
-				 else if (turn < -64)
-				 	turn = -64;
+         speed = clamp(joystickGetAnalog(1, 3)); // vertical axis on left joystick
+         twist  = clamp(joystickGetAnalog(1, 4)); // horizontal axis on left joystick
+/*
+				if (twist > 85) {  //Max turn value is 70
+				 	twist = 85;
+        }
+				else if (twist < -85) {
+         	twist = -85;
+        }
+*/
+/*
+        if (power > 100) {
+          power  = 100;
+        }
+        else if (power < -100) {
+          power = -100;
+        }
+*/
 /*
 				 if (buttonIsNewPress(JOY1_7R))
 					halfButtonPress = !halfButtonPress;
@@ -75,24 +91,60 @@
 					 turn = turn / 3.3;
 				 }
 */
-			   driveSet(power + turn, power - turn);
+			   driveSet(speed + twist, speed - twist);
+
 ////////////////////////////////////////////////////////////////////////////////
-/////                       LIFT CONTROLS                                  /////
+/////                       SPINNER CONTROLS                               /////
 ////////////////////////////////////////////////////////////////////////////////
-if (buttonGetState(JOY1_6U)) {
-  lift = 95;
+if (buttonGetState(JOY1_8U)) { // intake
+  spin = 110;
 }
-else if (buttonGetState(JOY1_6D)) {
-  lift = -80;
+else if (buttonGetState(JOY1_8D)) { // outtake
+  spin = -100;
+}
+else if (buttonGetState(JOY1_6U)) { // cap flipping speed
+  spin = -60;
+}
+else if (buttonGetState(JOY1_6D)) { // cap flip
+  spin = -60;
 }
 else {
-  lift = 0;
+  spin = 0;
 }
-liftSet(lift);
+spinnySet(spin);
+////////////////////////////////////////////////////////////////////////////////
+/////                        PUNCHER CONTROLS                              /////
+////////////////////////////////////////////////////////////////////////////////
+if (buttonGetState(JOY1_5U)) {
+  punch = 120;
+}
+else {
+  punch = 0;
+}
+punchySet(punch);
+/*
+////////////////////////////////////////////////////////////////////////////////
+/////                        ANGLER CONTROLS                              /////
+////////////////////////////////////////////////////////////////////////////////
+if (buttonGetState(JOY1_6U)) {
+  angle = 100;
+}
+else if (buttonGetState(JOY1_6D)) {
+  angle = -100;
+}
+else{
+  angle = 0;
+}
+angleSet(angle);
+*/
+////////////////////////////////////////////////////////////////////////////////
+/////                           OLD STUFF                                  /////
+////////////////////////////////////////////////////////////////////////////////
+
 ////////////////////////////////////////////////////////////////////////////////
 /////                       FLIPPER CONTROLS                               /////
 ////////////////////////////////////////////////////////////////////////////////
-
+/*
 if (buttonGetState(JOY1_8R)) {
   flip = 110;
 }
@@ -102,6 +154,7 @@ else if(buttonGetState(JOY1_8L)) {
 else{
   flip =0;
 }
+*/
 /*
 if (buttonIsNewPress(JOY1_8R)) {
   flipping = !flipping;
@@ -123,57 +176,23 @@ else{
   }
 }
 */
-flipperSet(flip);
+// flipperSet(flip);
+
 ////////////////////////////////////////////////////////////////////////////////
-/////                       SPINNER CONTROLS                               /////
+/////                       LIFT CONTROLS                                  /////
 ////////////////////////////////////////////////////////////////////////////////
-if (buttonIsNewPress(JOY1_8U)) {
-  spinUp = !spinUp;
-  spinDown = 0;
+/*
+if (buttonGetState(JOY1_6U)) {
+  lift = 95;
 }
-if (buttonIsNewPress(JOY1_8D)) {
-  spinDown = !spinDown;
-  spinUp = 0;
-}
-if (spinUp) {
-  spin = 100;
-}
-else if (spinDown) {
-  spin = -100;
+else if (buttonGetState(JOY1_6D)) {
+  lift = -80;
 }
 else {
-  spin = 0;
+  lift = 0;
 }
-spinnerSet(spin);
-////////////////////////////////////////////////////////////////////////////////
-/////                        PUNCHER CONTROLS                              /////
-////////////////////////////////////////////////////////////////////////////////
-if (buttonGetState(JOY1_5U)) {
-  punch = 100;
-}
-else {
-  punch = 0;
-}
-puncherSet(punch);
-////////////////////////////////////////////////////////////////////////////////
-/////                        INDEXER CONTROLS                              /////
-////////////////////////////////////////////////////////////////////////////////
-if (buttonIsNewPress(JOY1_5D)) {
-  indexing = !indexing;
-}
-if (indexing) {
-  index = 127;
-}
-else if (buttonGetState(JOY1_7D)) {
-  index = -100;
-}
-else{
-  index = 0;
-}
-indexerSet(index);
-////////////////////////////////////////////////////////////////////////////////
-/////                       LAST YEAR STUFF                                /////
-////////////////////////////////////////////////////////////////////////////////
+liftSet(lift);
+*/
 /*
 				 //Mobile Goal Intake Pneumatic Controls
 				 if (buttonIsNewPress(JOY1_7D))

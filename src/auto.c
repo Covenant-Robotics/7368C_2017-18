@@ -1,37 +1,198 @@
 #include "main.h"
+/*
+1 means limit switch is not pressed
+0 means limit switch is pressed
+*/
 
 void autonomous() {
-// /*
+if (digitalRead(1) == 0) { // Front Auton (Strategic Shot)
+  delay(13000);
+  punchySet(100);
+  delay(1500);
+  punchySet(0);
+}
+
+else if (digitalRead(2) == 0) { // Red Back Auton
+  driveReset();
+  while (driveGetPos() < 1000) { // flip cap
+    driveSet(45, 45);
+    spinnySet(-60);
+    delay(20);
+  }
+  driveSet(0, 0);
+  spinnySet(0);
+  driveReset();
+  delay(100);
+
+  while (driveGetPos() > -400) { // pull back
+    driveSet(-45, -45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+
+  while (driveRightPos() < 200) { // spin to face ball
+    driveSet(-45, 45);
+    delay(20);
+  }
+  driveReset();
+  driveSet(0, 0);
+  delay(100);
+
+  while (driveGetPos() < 350) { // score cap and intake ball
+    driveSet(45, 45);
+    spinnySet(110);
+    delay(20);
+  }
+  driveSet(0, 0);
+  spinnySet(0);
+  driveReset();
+
+  while (driveGetPos() < -300) { // pull back
+    driveSet(-45, -45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+
+  while (driveRightPos() < 200) { // spin perpendicular to wall
+    driveSet(-45, 45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+
+  while (driveGetPos() > -300) { // run into wall
+    driveSet(-45, -45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+
+  while (driveGetPos() < 200) { // drive forward
+    driveSet(45, 45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+
+  while (driveRightPos() > -200) { // spin and shoot opponent top flag
+    driveSet(45, -45);
+    punchySet(120);
+    delay(20);
+  }
+  driveSet(0, 0);
+  delay(1000);
+  driveReset();
+  punchySet(0);
+
+  punchySet(100); // shoot high flag
+  delay(1500);
+  punchySet(0);
+  driveReset();
+  /*
+  delay(20);
+  while(driveGetPos() < 1000) { //drive toward cap while intaking with roller
+    driveSet(45, 45);
+    spinnySet(100);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+  while(driveGetPos() > -500) { // drive back to wall
+    driveSet(-45, -45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+  while(driveGetPos() < 100) { // drive forward slightly
+    driveSet(45, 45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  spinnySet(0); // stop intaking ball
+
+  delay(100);
+  while(driveLeftPos() > -1000) { // spin to face flags
+    driveSet(-45, 45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+  while(driveGetPos() < 1000) { // drive forward a tad towards middle flag
+    driveSet(45, 45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  punchySet(100); // shoot middle flag
+  delay(1000);
+  punchySet(0);
+  driveReset();
+  delay(100);
+  while(driveGetPos() < 1000) { // drive into low flag
+    driveSet(45, 45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  // driveReset();
+  delay(100);
+  driveSet(-45, -45);
+  delay(1000);
+  driveSet(0, 0);
+  */
+} // end red front auton
+
+else if (digitalRead(6) == 0) { // Blue Front Auton
+
+} // end blue front auton
+
+else if (digitalRead(7) == 0) { // Red Back Auton
+  driveReset();
+  punchySet(100); // shoot flag
+  delay(1000);
+  punchySet(0);
+  delay(100);
+  while(driveLeftPos() < 1000) { // turn to face cap
+    driveSet(45, -45);
+    delay(20);
+  }
+  driveSet(0, 0);
+  driveReset();
+  delay(100);
+  while(driveGetPos() < 1000) { // drive into cap and intake ball
+
+  }
+} // end red back auton
+
+else { // Blue Back Auton
+
+} // end blue back auton
+
+/*
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////              ?????????????     RED FLAG AUTON        ?????????????                    ////
 ///////////////////////////////////////////////////////////////////////////////////////////////
+else if (digitalRead(12) == 0) {
   driveReset();
-  puncherSet(100);                            // puncher  pulls back
-  flipperSet(100);                            // flipper comes out
-  delay(500);
-  flipperSet(-100);                           // flipper goes to rest position
-  delay(800);
-  flipperSet(0);
-  delay(2400);
   ////////////////////////////////////////////
-  while (driveRightPos() > -100) {            // turn to face low flag
-    driveSet(45, -45);
-    puncherSet(0);
+  while (driveRightPos() > -1040) {            // Hit low flag
+    driveSet(-65, -38);
+    flipperSet(-100);                          // flipper comes out
     delay(20);
   }
   driveSet(0, 0);
   driveReset();
   delay(100);
   ////////////////////////////////////////////
-  while (driveRightPos() > -800) {            // run into low flag
-    driveSet(-45, -45);
-    delay(20);
-  }
-    driveReset();
-    driveSet(0, 0);
-    delay(100);
-  ////////////////////////////////////////////
-  while (driveRightPos() < 250) {             // drive forward
+  while (driveRightPos() < 245) {             // drive forward
     driveSet(45, 45);
     delay(20);
   }
@@ -39,50 +200,153 @@ driveReset();
   driveSet(0, 0);
   delay(100);
   ////////////////////////////////////////////
-  while (driveRightPos() > -250) {            // turn to face cap
-    driveSet(45, -45);
+  while (driveRightPos() > -57) {            // turn to face higher flag
+    driveSet(25, -25);
     delay(20);
   }
   driveReset();
   driveSet(0, 0);
   ////////////////////////////////////////////
-  while (driveRightPos() < 250) {             // drive into cap
-    driveSet(45, 45);
+  puncherSet(100);                            // puncher  pulls back
+  driveReset();
+  delay(2500);
+  puncherSet(0);                              // puncher releases
+  ////////////////////////////////////////////
+  while (driveRightPos() < 450) {             // turn to face cap
+    driveSet(-45, 45);
+  }
+  driveReset();
+  delay(100);
+  ////////////////////////////////////////////
+  while (driveRightPos() < 450) {             // drive into cap
+    driveSet(35, 35);
     delay(20);
   }
   driveReset();
   driveSet(0, 0);
+  delay(400);
   ////////////////////////////////////////////
+  liftSet(90);
   flipperSet(110);                            // flip cap
-  delay(1000);
+  delay(200);
+  flipperSet(120);
+  driveSet(30, -30);
+  liftSet(0);
+  delay(2400);
+  liftSet(-40);
+  delay(300);
   flipperSet(0);
+  liftSet(0);
   driveSet(-45, -45);                         // drive away from cap
-  delay(1000);
+  delay(700);
   driveSet(0, 0);
 // end RED FLAG AUTON
-// */
+//
+}
 
-// /*
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////              ?????????????     BLUE FLAG AUTON        ?????????????                   ////
 ///////////////////////////////////////////////////////////////////////////////////////////////
-// */
+else{
+driveReset();
+////////////////////////////////////////////
+while (driveRightPos() > -1040) {            // Hit low flag
+  driveSet(-65, -38);
+  flipperSet(-100);                          // flipper comes out
+  delay(20);
+}
+driveSet(0, 0);
+driveReset();
+delay(100);
+////////////////////////////////////////////
+while (driveRightPos() < 240) {             // drive forward
+  driveSet(45, 45);
+  delay(20);
+}
+driveReset();
+driveSet(0, 0);
+delay(100);
+////////////////////////////////////////////          // turn to face higher flag
+  driveSet(25, -25);
+  delay(215);
+driveReset();
+driveSet(0, 0);
+////////////////////////////////////////////
+puncherSet(100);                            // puncher  pulls back
+driveReset();
+delay(2500);
+puncherSet(0);                              // puncher releases
+////////////////////////////////////////////
+while (driveRightPos() > -350) {             // turn to face cap
+  driveSet(45, -45);
+}
+driveReset();
+delay(100);
+////////////////////////////////////////////
+while (driveRightPos() < 350) {             // drive into cap
+  driveSet(35, 35);
+  delay(20);
+}
+driveReset();
+driveSet(0, 0);
+delay(400);
+////////////////////////////////////////////
+liftSet(90);
+flipperSet(110);                            // flip cap
+delay(200);
+flipperSet(120);
+driveSet(-30, 30);
+liftSet(0);
+delay(2400);
+liftSet(-40);
+delay(300);
+flipperSet(0);
+liftSet(0);
+driveSet(-45, -45);                         // drive away from cap
+delay(700);
+driveSet(0, 0);
+// end BLUE FLAG AUTON
+}
+// end auton
+}
 
-// /*
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////              ?????????????     RED FAR AUTON        ?????????????                     ////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // */
+/*
+driveReset();
+driveSet(45, 45);
+flipperSet(-100);
+delay(200);
+flipperSet(100);
+delay(800);
+flipperSet(0);
+delay(1000);                          // flipper comes out
+driveSet(0, 0);
+driveReset();
+delay(100);
+////////////////////////////////////////////
+flipperSet(-127);
+liftSet(90);
+driveSet(-30, 30);
+delay(400);
+liftSet(0);
+delay(1100);
+flipperSet(0);
+liftSet(0);
+driveSet(-45, -45);                         // drive away from cap
+delay(700);
+driveSet(0, 0);
 
-// /*
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////              ?????????????     BLUE FAR AUTON        ?????????????                    ////
 ///////////////////////////////////////////////////////////////////////////////////////////////
-// */
 
 }  // end auton
-// */
 
+*/
 // end
   /*
   ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -770,3 +1034,4 @@ else if(digitalRead(JUMPER_12) == 0) {
             driveSet(0, 0);
           }
 */
+}
