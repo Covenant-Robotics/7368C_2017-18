@@ -13,6 +13,6 @@ void initialize() {
   motorManagerInit();
   driveInit();
   intakeInit();
-  // imeInit();
+  imeInit();
   // i2cTaskStart();
 }

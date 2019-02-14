@@ -3,7 +3,7 @@ Drive Code
 */
 #include "main.h"
 
-// int counts, right;
+int counts;
 
 void driveSet (int left, int right)
 {
@@ -15,60 +15,32 @@ void driveSet (int left, int right)
 
 void driveInit()
 {
-  leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOTTOM, false);
-  rightEncoder = encoderInit(ENCODER_RIGHT_TOP, ENCODER_RIGHT_BOTTOM, false);
+  // leftEncoder = encoderInit(ENCODER_LEFT_TOP, ENCODER_LEFT_BOTTOM, false);
+  // rightEncoder = encoderInit(ENCODER_RIGHT_TOP, ENCODER_RIGHT_BOTTOM, false);
   blrsMotorInit(LEFT_DRIVE, true , 0.5f, NULL);
   blrsMotorInit(LEFT_DRIVE_2, false , 0.5f, NULL);
   blrsMotorInit(RIGHT_DRIVE, false , 0.5f, NULL);
   blrsMotorInit(RIGHT_DRIVE_2, true , 0.5f, NULL);
 }
 
-void driveReset (){
-  encoderReset(leftEncoder);
-  encoderReset(rightEncoder);
-}
-
-/*
 void imeInit()
 {
   imeInitializeAll();
   watchdogInit();
 }
 
-int driveLeftPos() {
-  int left;
-  imeGet(IME_LEFT, &left);
-  return left;
+int driveGetPos() {
+  imeGet(0, &counts);
+  return counts;
 }
 
-
-int driveRightPos() {
-  imeGet(IME_RIGHT, &right);
-  return right;
-}
 
 
 void driveReset (){
-  // encoderReset(leftEncoder);
-  // encoderReset(rightEncoder);
-  imeReset(IME_LEFT);
-  imeReset(IME_RIGHT);
+  imeReset(0);
 }
 
-
-int driveLeftPos() {
-  int driveLeftPos;
-  imeGet(IME_LEFT, &driveLeftPos);
-  return driveLeftPos;
-}
-
-int driveRightPos() {
-  int driveRightPos;
-  imeGet(IME_RIGHT, &driveRightPos);
-  return driveRightPos;
-}
-*/
-
+/*
  int driveLeftPos() {
   return encoderGet(leftEncoder);
 }
@@ -85,7 +57,7 @@ int driveRightPos() {
   rightPos = encoderGet(rightEncoder);
   return ((leftPos + rightPos) / 2);
 }
-
+*/
 /*
 int driveGetPos() {
   int leftCounts, rightCounts;

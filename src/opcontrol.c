@@ -45,9 +45,9 @@
 
         // printf("right%d\n", rightPos);
 
-        // printf("drive %d", driveGetPos());
+        printf("drive %d", driveGetPos());
 
-        printf("left %d", driveLeftPos());
+        // printf("left %d", driveLeftPos());
 
         // printf("pot %d", analogRead(2));
 
