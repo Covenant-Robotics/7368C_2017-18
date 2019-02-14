@@ -4,6 +4,8 @@
 
  void operatorControl() {
 
+  // int rightPos;
+  // int counts;
   // int rack;
   // int lift;
   int speed;
@@ -34,17 +36,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 /////                       SENSOR VALUES                                  /////
 ////////////////////////////////////////////////////////////////////////////////
+
+        // printf("auton %d \n", digitalRead(1));
+
         // printf("lift %d", analogRead(LIFT_POT));
 
         // printf("flip %d", analogRead(FLIP_POT));
 
+        // printf("right%d\n", rightPos);
+
         // printf("drive %d", driveGetPos());
 
-        printf("drive %d", driveGetPos());
-
-        // printf("left %d", driveLeftPos());
-
-        // printf("auton %d", digitalRead(5));
+        printf("left %d", driveLeftPos());
 
         // printf("pot %d", analogRead(2));
 

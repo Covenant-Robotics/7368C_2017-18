@@ -6,7 +6,7 @@
    pinMode(6, INPUT);
    pinMode(7, INPUT);
    pinMode(8, INPUT);
-   watchdogInit();
+   // watchdogInit();
  }
 
 void initialize() {

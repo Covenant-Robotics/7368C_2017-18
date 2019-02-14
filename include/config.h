@@ -10,10 +10,10 @@
 #define PUNCH_RIGHT 8
 #define PUNCH_LEFTIE 7
 
-#define ENCODER_LEFT_TOP 3     // Encoders
-#define ENCODER_LEFT_BOTTOM 4
-#define ENCODER_RIGHT_TOP 5
-#define ENCODER_RIGHT_BOTTOM 6
+#define ENCODER_LEFT_TOP 2     // Encoders
+#define ENCODER_LEFT_BOTTOM 1
+#define ENCODER_RIGHT_TOP 6
+#define ENCODER_RIGHT_BOTTOM 7
 
 #define LIFT_POT 5     // Potentiometers
 #define FLIP_POT 6

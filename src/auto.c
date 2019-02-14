@@ -5,16 +5,112 @@
 */
 
 void autonomous() {
-if (digitalRead(1) == 0) { // Front Auton (Strategic Shot)
-  delay(13000);
-  punchySet(100);
-  delay(1500);
+if (digitalRead(1) == 0) { // Red front Auton
+  punchySet(120); // hit top flag
+  delay(1200);
   punchySet(0);
+  driveSet(45, -45); // spin to face cap
+  delay(800);
+  driveSet(45, 45); // drive to cap
+  spinnySet(110); // intake ball
+  delay(2400);
+  driveSet(-45, -45); // back away from cap
+  delay(1750);
+  driveSet(-45, 45); // turn to second cap
+  delay(600);
+  spinnySet(-60); // flip cap
+  driveSet(45, 45); // drive into second cap
+  delay(1450);
+  spinnySet(0); // stop spinning intake
+  driveSet(-45, -45); // drive away from second cap
+  delay(700);
+  driveSet(45, -45); //spin to face away from wall
+  delay(600);
+  driveSet(-45, -45); // back into wall
+  delay(1850);
+  driveSet(45, 45); // drive away from wall
+  delay(330);
+  driveSet(-45, 45); // spin to face low flag
+  delay(760);
+  driveSet(45, 45); // drive into low flag
+  delay(2000);
+  driveSet(0, 0);
+
+} // end red front auton
+
+else if (digitalRead(2) == 0) { // Blue Front Auton
+  punchySet(120); // hit top flag
+  delay(1200);
+  punchySet(0);
+  driveSet(-45, 45); // spin to face cap
+  delay(800);
+  driveSet(45, 45); // drive to cap
+  spinnySet(110); // intake ball
+  delay(2400);
+  driveSet(-45, -45); // back away from cap
+  delay(1750);
+  driveSet(45, -45); // turn to second cap
+  delay(600);
+  spinnySet(-60); // flip cap
+  driveSet(45, 45); // drive into second cap
+  delay(1450);
+  spinnySet(0); // stop spinning intake
+  driveSet(-45, -45); // drive away from second cap
+  delay(700);
+  driveSet(-45, 45); //spin to face away from wall
+  delay(600);
+  driveSet(-45, -45); // back into wall
+  delay(1850);
+  driveSet(45, 45); // drive away from wall
+  delay(330);
+  driveSet(45, -45); // spin to face low flag
+  delay(760);
+  driveSet(45, 45); // drive into low flag
+  delay(2000);
+  driveSet(0, 0);
+
+} // end blue front auton
+
+else if (digitalRead(3) == 0) { // red back auton
+  driveSet(45, 45); // drive into cap
+  spinnySet(-100); // flip cap
+  delay(2200);
+  driveSet(-45, -45); // drive away from cap
+  delay(2100);
+  driveSet(-45, 45); // turn to face second cap
+  delay(500);
+  driveSet(45, 45); // drive into second cap
+  spinnySet(110); // flip cap
+  delay(2200);
+  driveSet(-45, -45); // back away
+  delay(330);
+  spinnySet(0);
+  delay(1550);
+  driveSet(0, 0);
 }
 
-else if (digitalRead(2) == 0) { // Red Back Auton
+else { // blue back auton
+  driveSet(45, 45); // drive into cap
+  spinnySet(-100); // intake ball
+  delay(2200);
+  driveSet(-45, -45); // drive away from cap
+  spinnySet(0);
+  delay(2100);
+  driveSet(-45, 45); // turn to face second cap
+  delay(500);
+  driveSet(45, 45); // drive into second cap
+  spinnySet(110); // flip cap
+  delay(2200);
+  driveSet(-45, -45);
+  delay(330);
+  spinnySet(0);
+  delay(1550);
+  driveSet(0, 0);
+}
+} // end auton
+/*
   driveReset();
-  while (driveGetPos() < 1000) { // flip cap
+  while (driveGetPos() < 20) { // flip cap
     driveSet(45, 45);
     spinnySet(-60);
     delay(20);
@@ -95,7 +191,7 @@ else if (digitalRead(2) == 0) { // Red Back Auton
   delay(1500);
   punchySet(0);
   driveReset();
-  /*
+
   delay(20);
   while(driveGetPos() < 1000) { //drive toward cap while intaking with roller
     driveSet(45, 45);
@@ -148,12 +244,13 @@ else if (digitalRead(2) == 0) { // Red Back Auton
   delay(1000);
   driveSet(0, 0);
   */
-} // end red front auton
-
+ // end red front auton
+/*
 else if (digitalRead(6) == 0) { // Blue Front Auton
 
 } // end blue front auton
-
+*/
+/*
 else if (digitalRead(7) == 0) { // Red Back Auton
   driveReset();
   punchySet(100); // shoot flag
@@ -171,11 +268,7 @@ else if (digitalRead(7) == 0) { // Red Back Auton
 
   }
 } // end red back auton
-
-else { // Blue Back Auton
-
-} // end blue back auton
-
+*/
 /*
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ////              ?????????????     RED FLAG AUTON        ?????????????                    ////
@@ -1034,4 +1127,3 @@ else if(digitalRead(JUMPER_12) == 0) {
             driveSet(0, 0);
           }
 */
-}
